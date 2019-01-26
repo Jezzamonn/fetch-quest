@@ -1,7 +1,9 @@
-﻿public static class EventManager
+﻿using UnityEngine;
+
+public static class EventManager
 {
-    public static readonly CallbackEvent<Actor.Action, ObjectData> onDogAction =
-        new CallbackEvent<Actor.Action, ObjectData>();
+    public static readonly CallbackEvent<Actor.Action, ObjectData, Vector3> onDogAction =
+        new CallbackEvent<Actor.Action, ObjectData, Vector3>();
 }
 
 // Generic event classes

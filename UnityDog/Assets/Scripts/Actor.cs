@@ -18,7 +18,7 @@ public class Actor : MonoBehaviour
         //process input
         if (closestObject != null && Input.GetButtonDown("ContextAction"))
         {
-            EventManager.onDogAction.Dispatch(Action.Context, closestObject.data);
+            EventManager.onDogAction.Dispatch(Action.Context, closestObject.data, transform.position);
             closestObject.OnInteract();
         }
     }

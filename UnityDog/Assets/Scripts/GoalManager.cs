@@ -9,11 +9,13 @@ public class GoalManager : MonoBehaviour
     {
         public Actor.Action action;
         public ObjectData objectData;
+        public ZoneManager.ZoneId zoneId;
 
-        public Goal(Actor.Action inAction, ObjectData inObjectData)
+        public Goal(Actor.Action inAction, ObjectData inObjectData, ZoneManager.ZoneId inZoneId)
         {
             action = inAction;
             objectData = inObjectData;
+            zoneId = inZoneId;
         }
     }
 
@@ -22,7 +24,7 @@ public class GoalManager : MonoBehaviour
     private int goalIndex;
     private List<Goal> goals = new List<Goal>();
 
-    private Action<Actor.Action, ObjectData> onPlayerActionDelegate;
+    private Action<Actor.Action, ObjectData, Vector3> onPlayerActionDelegate;
 
     private void Awake()
     {
@@ -41,17 +43,18 @@ public class GoalManager : MonoBehaviour
     {
         foreach (ObjectData data in objectData)
         {
-            goals.Add(new Goal(data.GetRandomValidAction(), data));
+            goals.Add(new Goal(data.GetRandomValidAction(), data, data.GetRandomValidZoneId()));
         }
 
         Shuffle(goals);
     }
 
-    private void OnPlayerAction(Actor.Action action, ObjectData objectData)
+    private void OnPlayerAction(Actor.Action action, ObjectData objectData, Vector3 location)
     {
         Goal goal = goals[goalIndex];
         if (action != goal.action ||
-            objectData.name != goal.objectData.name)
+            objectData.name != goal.objectData.name ||
+            !ZoneManager.IsPointInZone(location, goal.zoneId))
         {
             return;
         }
