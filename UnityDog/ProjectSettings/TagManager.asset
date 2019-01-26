@@ -19,8 +19,8 @@ TagManager:
   - Dog
   - Ground
   - Environment
-  - 
-  - 
+  - InteractionTrigger
+  - Interactable
   - 
   - 
   - 
