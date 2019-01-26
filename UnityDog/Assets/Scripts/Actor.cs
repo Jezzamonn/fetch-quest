@@ -9,6 +9,12 @@ public class Actor : MonoBehaviour
     private void Update()
     {
         UpdateClosest();
+
+        //process input
+        if (Input.GetButtonDown("ContextAction"))
+        {
+            lastClosest?.OnInteract();
+        }
     }
 
     private void UpdateClosest()

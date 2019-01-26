@@ -21,4 +21,9 @@ public class Interactable : MonoBehaviour
     {
         meshRenderer.material = normalMat;
     }
+
+    public void OnInteract()
+    {
+        Debug.LogFormat("Interaction w/ {0}!", gameObject.name);
+    }
 }
