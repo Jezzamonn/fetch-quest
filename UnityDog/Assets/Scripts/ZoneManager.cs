@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZoneManager : MonoBehaviour
+public static class ZoneManager
 {
     [Serializable]
     public enum ZoneId
