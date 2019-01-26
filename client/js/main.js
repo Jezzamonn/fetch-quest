@@ -1,4 +1,5 @@
 import Controller from './controller.js';
+import { hsl } from './util.js';
 
 let canvas = document.getElementById('canvas');
 let context = canvas.getContext('2d');
@@ -19,6 +20,9 @@ function init() {
 	window.addEventListener('resize', handleResize);
 	// Kick off the update loop
 	window.requestAnimationFrame(everyFrame);
+
+	document.addEventListener('mousedown', () => sendMessage());
+	document.addEventListener('touchstart', () => sendMessage());
 }
 
 // TODO: Make tweak this to allow frame skipping for slow computers. Maybe.
@@ -41,7 +45,6 @@ function render() {
 	context.clearRect(0, 0, canvas.width, canvas.height);
 
 	// Set origin to middle and scale canvas
-	// context.translate(canvas.width / 2, canvas.height / 2);
 	context.scale(scale, scale);
 
 	controller.render(context);
@@ -63,6 +66,12 @@ function handleResize(evt) {
 	scale = Math.max(canvas.width, canvas.height) / SIZE;
 
 	render();
+}
+
+function sendMessage() {
+	const body = document.querySelector('body');
+	const color = hsl(Math.random(), 0.6, 0.2);
+	body.style.backgroundColor = color;
 }
 
 init();

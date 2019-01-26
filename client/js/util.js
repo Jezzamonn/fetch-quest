@@ -70,3 +70,10 @@ export function gray(whiteAmt) {
 	const whiteRgb = Math.floor(255 * whiteAmt);
 	return rgb(whiteRgb, whiteRgb, whiteRgb);
 }
+
+export function hsl(h, s, l) {
+    h = Math.floor(360 * h);
+    s = Math.floor(100 * s) + '%';
+    l = Math.floor(100 * l) + '%';
+    return 'hsl('+h+','+s+','+l+')';
+}

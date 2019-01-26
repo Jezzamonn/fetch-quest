@@ -12,9 +12,9 @@ export default class Controller {
 
 	render(context) {
 		context.beginPath();
-		context.strokeStyle = '#3f709b';
+		context.strokeStyle = 'white';
 		context.lineWidth = 2;
-		context.globalAlpha = 0.3;
+		context.globalAlpha = 0.1;
 
 		const lines = 20;
 		for (let i = 0; i < lines + 1; i ++) {
