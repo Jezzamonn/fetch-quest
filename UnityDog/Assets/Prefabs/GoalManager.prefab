@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77aad80ec8cc8af4cadc1f8caefa94dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectData:
-  - {fileID: 11400000, guid: 0ef41424dd41a7b4296875aa47608d39, type: 2}
+  goalData:
   - {fileID: 11400000, guid: 5839c45d1c7da4d458c6e9e02732ebdf, type: 2}
+  - {fileID: 11400000, guid: 0ef41424dd41a7b4296875aa47608d39, type: 2}

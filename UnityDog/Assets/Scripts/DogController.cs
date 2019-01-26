@@ -1,22 +1,33 @@
 ﻿using UnityEngine;
+using DoodleStudio95;
 
 public class DogController : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private DoodleAnimationFile walkAnim;
+    [SerializeField] private DoodleAnimationFile idleAnim;
 
     private Rigidbody rb;
+    private DoodleAnimator animator;
 
     private Vector2 moveInput;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<DoodleAnimator>();
     }
 
     private void Update()
     {
         moveInput.x = Input.GetAxis("Horizontal");
         moveInput.y = Input.GetAxis("Vertical");
+
+        DoodleAnimationFile desiredAnim = moveInput.sqrMagnitude > 0.1f ? walkAnim : idleAnim;
+        if (desiredAnim != animator.File)
+        {
+            animator.ChangeAnimation(desiredAnim);
+        }
     }
 
     private void FixedUpdate()
