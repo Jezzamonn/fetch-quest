@@ -45,6 +45,8 @@ namespace SocketIO
 				return new SocketIOEvent(json[0].str);
 			}
 
+            // There used to me a more restrictive check here. But no more!
+
 			return new SocketIOEvent(json[0].str, json[1]);
 		}
 	}
