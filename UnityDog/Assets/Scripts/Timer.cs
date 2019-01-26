@@ -35,11 +35,6 @@ public class Timer
         return Mathf.Max(duration - timer, 0f);
     }
 
-    public float ClampedTime()
-    {
-        return Mathf.Min(timer, duration);
-    }
-
     public bool IsDone()
     {
         return timer >= duration;
