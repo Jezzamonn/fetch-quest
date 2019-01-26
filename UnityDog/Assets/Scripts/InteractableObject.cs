@@ -2,7 +2,7 @@
 
 public class InteractableObject : MonoBehaviour
 {
-    public ObjectData data;
+    public GoalData.ObjectId objectId;
 
     [SerializeField] private Material normalMat;
     [SerializeField] private Material closestMat;

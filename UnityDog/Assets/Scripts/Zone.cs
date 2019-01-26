@@ -3,7 +3,7 @@
 [RequireComponent(typeof(Collider))]
 public class Zone : MonoBehaviour
 {
-    [SerializeField] private ZoneManager.ZoneId zoneId;
+    [SerializeField] private GoalData.ZoneId zoneId;
 
     private void Awake()
     {

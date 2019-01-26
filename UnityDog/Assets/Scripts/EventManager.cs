@@ -2,8 +2,8 @@
 
 public static class EventManager
 {
-    public static readonly CallbackEvent<Actor.Action, ObjectData, Vector3> onDogAction =
-        new CallbackEvent<Actor.Action, ObjectData, Vector3>();
+    public static readonly CallbackEvent<GoalData.Action, GoalData.ObjectId, Vector3> onDogAction =
+        new CallbackEvent<GoalData.Action, GoalData.ObjectId, Vector3>();
 }
 
 // Generic event classes

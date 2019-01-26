@@ -7,24 +7,24 @@ public class GoalManager : MonoBehaviour
     [Serializable]
     private struct Goal
     {
-        public Actor.Action action;
-        public ObjectData objectData;
-        public ZoneManager.ZoneId zoneId;
+        public GoalData.Action action;
+        public GoalData.ObjectId objectId;
+        public GoalData.ZoneId zoneId;
 
-        public Goal(Actor.Action inAction, ObjectData inObjectData, ZoneManager.ZoneId inZoneId)
+        public Goal(GoalData.Action inAction, GoalData.ObjectId inObjectId, GoalData.ZoneId inZoneId)
         {
             action = inAction;
-            objectData = inObjectData;
+            objectId = inObjectId;
             zoneId = inZoneId;
         }
     }
 
-    [SerializeField] private ObjectData[] objectData;
+    [SerializeField] private GoalData[] goalData;
 
     private int goalIndex;
     private List<Goal> goals = new List<Goal>();
 
-    private Action<Actor.Action, ObjectData, Vector3> onPlayerActionDelegate;
+    private Action<GoalData.Action, GoalData.ObjectId, Vector3> onPlayerActionDelegate;
 
     private void Awake()
     {
@@ -41,19 +41,19 @@ public class GoalManager : MonoBehaviour
 
     private void InitializeGoals()
     {
-        foreach (ObjectData data in objectData)
+        foreach (GoalData data in goalData)
         {
-            goals.Add(new Goal(data.GetRandomValidAction(), data, data.GetRandomValidZoneId()));
+            goals.Add(new Goal(data.GetRandomValidAction(), data.requiredObject, data.GetRandomValidZoneId()));
         }
 
         Shuffle(goals);
     }
 
-    private void OnPlayerAction(Actor.Action action, ObjectData objectData, Vector3 location)
+    private void OnPlayerAction(GoalData.Action action, GoalData.ObjectId objectId, Vector3 location)
     {
         Goal goal = goals[goalIndex];
         if (action != goal.action ||
-            objectData.name != goal.objectData.name ||
+            objectId != goal.objectId ||
             !ZoneManager.IsPointInZone(location, goal.zoneId))
         {
             return;

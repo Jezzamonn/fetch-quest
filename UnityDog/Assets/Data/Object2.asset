@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fc8a0186bbff8d49ba20c94a97aa94e, type: 3}
   m_Name: Object2
   m_EditorClassIdentifier: 
+  requiredObject: 2
   validActions: 00000000
+  validZones: 00000000

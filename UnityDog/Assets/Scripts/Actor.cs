@@ -3,11 +3,6 @@ using UnityEngine;
 
 public class Actor : MonoBehaviour
 {
-    public enum Action
-    {
-        Context,
-    }
-
     private Dictionary<Collider, InteractableObject> nearbyObjects = new Dictionary<Collider, InteractableObject>();
     private InteractableObject closestObject;
 
@@ -18,7 +13,7 @@ public class Actor : MonoBehaviour
         //process input
         if (closestObject != null && Input.GetButtonDown("ContextAction"))
         {
-            EventManager.onDogAction.Dispatch(Action.Context, closestObject.data, transform.position);
+            EventManager.onDogAction.Dispatch(GoalData.Action.Context, closestObject.objectId, transform.position);
             closestObject.OnInteract();
         }
     }
