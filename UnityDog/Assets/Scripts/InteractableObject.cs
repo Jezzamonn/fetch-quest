@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public class InteractableObject : MonoBehaviour
 {
+    public ObjectData data;
+
     [SerializeField] private Material normalMat;
     [SerializeField] private Material closestMat;
 
@@ -24,6 +26,6 @@ public class Interactable : MonoBehaviour
 
     public void OnInteract()
     {
-        Debug.LogFormat("Interaction w/ {0}!", gameObject.name);
+        
     }
 }

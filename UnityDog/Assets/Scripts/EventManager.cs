@@ -1,7 +1,7 @@
 ﻿public static class EventManager
 {
-    public static readonly CallbackEvent<Actor.Action, Interactable, int> onDogAction =
-        new CallbackEvent<Actor.Action, Interactable, int>();
+    public static readonly CallbackEvent<Actor.Action, ObjectData> onDogAction =
+        new CallbackEvent<Actor.Action, ObjectData>();
 }
 
 // Generic event classes

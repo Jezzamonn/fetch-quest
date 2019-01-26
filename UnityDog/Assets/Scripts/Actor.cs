@@ -5,11 +5,11 @@ public class Actor : MonoBehaviour
 {
     public enum Action
     {
-        Context
+        Context,
     }
 
-    private Dictionary<Collider, Interactable> nearbyObjects = new Dictionary<Collider, Interactable>();
-    private Interactable closestObject;
+    private Dictionary<Collider, InteractableObject> nearbyObjects = new Dictionary<Collider, InteractableObject>();
+    private InteractableObject closestObject;
 
     private void Update()
     {
@@ -18,16 +18,16 @@ public class Actor : MonoBehaviour
         //process input
         if (closestObject != null && Input.GetButtonDown("ContextAction"))
         {
-            EventManager.onDogAction.Dispatch(Action.Context, closestObject, 0);
+            EventManager.onDogAction.Dispatch(Action.Context, closestObject.data);
             closestObject.OnInteract();
         }
     }
 
     private void UpdateClosest()
     {
-        Interactable newClosest = null;
+        InteractableObject newClosest = null;
         float minDistance = float.MaxValue;
-        foreach (KeyValuePair<Collider, Interactable> thing in nearbyObjects)
+        foreach (KeyValuePair<Collider, InteractableObject> thing in nearbyObjects)
         {
             float distance = (transform.position - thing.Key.ClosestPointOnBounds(transform.position)).sqrMagnitude;
             if (distance < minDistance)
@@ -50,7 +50,7 @@ public class Actor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Interactable interactable = other.GetComponent<Interactable>();
+        InteractableObject interactable = other.GetComponent<InteractableObject>();
         if (interactable != null && !nearbyObjects.ContainsKey(other))
         {
             nearbyObjects.Add(other, interactable);
