@@ -3,48 +3,49 @@ using UnityEngine;
 
 public class Actor : MonoBehaviour
 {
-    private Dictionary<Collider, Interactable> nearbyObjects = new Dictionary<Collider, Interactable>();
-    private Interactable lastClosest;
+    private Dictionary<Collider, InteractableObject> nearbyObjects = new Dictionary<Collider, InteractableObject>();
+    private InteractableObject closestObject;
 
     private void Update()
     {
         UpdateClosest();
 
         //process input
-        if (Input.GetButtonDown("ContextAction"))
+        if (closestObject != null && Input.GetButtonDown("ContextAction"))
         {
-            lastClosest?.OnInteract();
+            EventManager.onDogAction.Dispatch(GoalData.Action.Context, closestObject.objectId, transform.position);
+            closestObject.OnInteract();
         }
     }
 
     private void UpdateClosest()
     {
-        Interactable closestObject = null;
+        InteractableObject newClosest = null;
         float minDistance = float.MaxValue;
-        foreach (KeyValuePair<Collider, Interactable> thing in nearbyObjects)
+        foreach (KeyValuePair<Collider, InteractableObject> thing in nearbyObjects)
         {
             float distance = (transform.position - thing.Key.ClosestPointOnBounds(transform.position)).sqrMagnitude;
             if (distance < minDistance)
             {
-                closestObject = thing.Value;
+                newClosest = thing.Value;
                 minDistance = distance;
             }
         }
 
-        if (closestObject == lastClosest)
+        if (newClosest == closestObject)
         {
             return;
         }
 
-        lastClosest?.NotContextObject();
-        closestObject?.IsContextObject();
+        closestObject?.NotContextObject();
+        newClosest?.IsContextObject();
 
-        lastClosest = closestObject;
+        closestObject = newClosest;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Interactable interactable = other.GetComponent<Interactable>();
+        InteractableObject interactable = other.GetComponent<InteractableObject>();
         if (interactable != null && !nearbyObjects.ContainsKey(other))
         {
             nearbyObjects.Add(other, interactable);
