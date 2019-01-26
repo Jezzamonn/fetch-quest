@@ -2,7 +2,7 @@ export default class Controller {
 
 	constructor() {
 		this.animAmt = 0;
-		this.period = 3;
+		this.period = 1;
 	}
 
 	update(dt) {
@@ -12,13 +12,18 @@ export default class Controller {
 
 	render(context) {
 		context.beginPath();
-		context.fillStyle = 'black';
-		context.moveTo(0, 0);
-		context.arc(0, 0, 100, 0, 2 * Math.PI * this.animAmt);
-		context.fill();
+		context.strokeStyle = '#3f709b';
+		context.lineWidth = 2;
+		context.globalAlpha = 0.3;
 
-		context.scale(10, 10);
-		context.fillText(this.period * this.animAmt, 0, 0);
+		const lines = 20;
+		for (let i = 0; i < lines + 1; i ++) {
+			const mult = 1 / (lines - 1);
+			context.beginPath();
+			context.moveTo(0, 500 * (i - this.animAmt) * mult);
+			context.lineTo(500, 500 * (i + 1 - this.animAmt) * mult);
+			context.stroke();
+		}
 	}
 
 }
