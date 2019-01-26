@@ -33,6 +33,7 @@ public class DogController : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 moveForce = new Vector3(moveInput.x, 0.0f, moveInput.y);
+        moveForce.Normalize();
         moveForce *= speed * Time.fixedDeltaTime;
         rb.AddForce(moveForce, ForceMode.VelocityChange);
     }
