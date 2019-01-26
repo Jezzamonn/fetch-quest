@@ -29,7 +29,7 @@ function init() {
 	document.addEventListener('touchstart', () => sendMessage());
 
 	// Connect to socket.io!
-	socket = io('http://localhost:3000');
+	socket = io('http://35.231.246.171:3000');
 }
 
 // TODO: Make tweak this to allow frame skipping for slow computers. Maybe.
