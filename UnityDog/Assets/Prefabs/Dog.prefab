@@ -392,8 +392,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  walkAnim: {fileID: 11400000, guid: ee75e4428831440af8ed42955c30abf1, type: 2}
-  idleAnim: {fileID: 11400000, guid: 8b0a308b35f5de545b5cdf400e82a694, type: 2}
+  walkLeftAnim: {fileID: 11400000, guid: 283e837a487b3a145a72e0d93df19a22, type: 2}
+  walkRightAnim: {fileID: 11400000, guid: ee75e4428831440af8ed42955c30abf1, type: 2}
+  idleLeftAnim: {fileID: 11400000, guid: 908b644e26a7a0b4e9709b4945813693, type: 2}
+  idleRightAnim: {fileID: 11400000, guid: 8b0a308b35f5de545b5cdf400e82a694, type: 2}
 --- !u!1 &5987712597034423512
 GameObject:
   m_ObjectHideFlags: 0
