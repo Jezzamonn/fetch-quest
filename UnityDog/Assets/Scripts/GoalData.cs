@@ -26,9 +26,9 @@ public class GoalData : ScriptableObject
         Yard
     }
 
-    public ObjectId requiredObject;
-    [SerializeField] private Action[] validActions;
-    [SerializeField] private ZoneId[] validZones;
+    public ObjectId requiredObject = ObjectId.NONE;
+    [SerializeField] private Action[] validActions = { Action.Context };
+    [SerializeField] private ZoneId[] validZones = { ZoneId.ANY };
 
     public Action GetRandomValidAction()
     {

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fc8a0186bbff8d49ba20c94a97aa94e, type: 3}
-  m_Name: Object1
+  m_Name: BedGoal
   m_EditorClassIdentifier: 
-  requiredObject: 1
+  requiredObject: 2
   validActions: 00000000
   validZones: 00000000
