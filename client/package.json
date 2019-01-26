@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "untitled-dog-game-client",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -24,5 +24,8 @@
     "reload": "^2.3.1",
     "webpack": "^3.11.0",
     "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "socket.io-client": "^2.2.0"
   }
 }

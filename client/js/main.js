@@ -1,3 +1,5 @@
+import io from 'socket.io-client';
+
 import Controller from './controller.js';
 import { hsl } from './util.js';
 
@@ -11,6 +13,8 @@ let scale = 1;
 let lastTime;
 let controller;
 
+let socket;
+
 function init() {
 	lastTime = Date.now();
 	controller = new Controller();
@@ -23,6 +27,9 @@ function init() {
 
 	document.addEventListener('mousedown', () => sendMessage());
 	document.addEventListener('touchstart', () => sendMessage());
+
+	// Connect to socket.io!
+	socket = io('http://localhost:3000');
 }
 
 // TODO: Make tweak this to allow frame skipping for slow computers. Maybe.
@@ -72,6 +79,8 @@ function sendMessage() {
 	const body = document.querySelector('body');
 	const color = hsl(Math.random(), 0.6, 0.2);
 	body.style.backgroundColor = color;
+
+	socket.emit('reaction', 'good');
 }
 
 init();
