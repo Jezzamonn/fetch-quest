@@ -4,11 +4,17 @@ using DoodleStudio95;
 public class DogController : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private DoodleAnimationFile walkAnim;
-    [SerializeField] private DoodleAnimationFile idleAnim;
+    [SerializeField] private float movingDrag;
+    [SerializeField] private float stopDrag;
+
+    [SerializeField] private DoodleAnimationFile walkLeftAnim;
+    [SerializeField] private DoodleAnimationFile walkRightAnim;
+    [SerializeField] private DoodleAnimationFile idleLeftAnim;
+    [SerializeField] private DoodleAnimationFile idleRightAnim;
 
     private Rigidbody rb;
     private DoodleAnimator animator;
+    private bool lastMoveRight;
 
     private Vector2 moveInput;
 
@@ -22,8 +28,21 @@ public class DogController : MonoBehaviour
     {
         moveInput.x = Input.GetAxis("Horizontal");
         moveInput.y = Input.GetAxis("Vertical");
+        bool hasInput = moveInput.sqrMagnitude > 0.0f;
 
-        DoodleAnimationFile desiredAnim = moveInput.sqrMagnitude > 0.1f ? walkAnim : idleAnim;
+        rb.drag = hasInput ? movingDrag : stopDrag;
+
+        DoodleAnimationFile desiredAnim;
+        if (hasInput)
+        {
+            lastMoveRight = moveInput.x > 0.0f;
+            desiredAnim = lastMoveRight ? walkRightAnim : walkLeftAnim;
+        }
+        else
+        {
+            desiredAnim = lastMoveRight ? idleRightAnim : idleLeftAnim;
+        }
+
         if (desiredAnim != animator.File)
         {
             animator.ChangeAnimation(desiredAnim);
