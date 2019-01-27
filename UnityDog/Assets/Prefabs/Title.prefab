@@ -102,6 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionTime: 1
+  triggerEvent: 0
+  nextScreen: {fileID: 0}
 --- !u!1 &8462395963333015469
 GameObject:
   m_ObjectHideFlags: 0
