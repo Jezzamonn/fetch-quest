@@ -23,7 +23,9 @@ public class GoalData : ScriptableObject
         ANY,
         Kitchen,
         LivingRoom,
-        Yard
+        Yard,
+        Bedroom1,
+        Bedroom2,
     }
 
     public ObjectId requiredObject = ObjectId.NONE;
