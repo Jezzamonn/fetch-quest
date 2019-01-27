@@ -1,3 +1,9 @@
 promo/
 .vs/
 music/
+
+UnityDog/Assets/SocketIO/WebsocketSharp/bin/Debug.meta
+UnityDog/Assets/SocketIO/WebsocketSharp/bin/Debug_Ubuntu.meta
+UnityDog/Assets/SocketIO/WebsocketSharp/bin/Release.meta
+UnityDog/Assets/SocketIO/WebsocketSharp/bin/Release_Ubuntu.meta
+UnityDog/Assets/SocketIO/WebsocketSharp/obj.meta
