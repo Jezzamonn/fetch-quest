@@ -1147,7 +1147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_States: []
-  m_File: {fileID: 11400000, guid: be2d972ed0884744abb4574ea6179093, type: 2}
+  m_File: {fileID: 11400000, guid: 1c8bebd0bf30b49a7851d2e2cd1f71a7, type: 2}
   speed: 1
   m_Settings:
     randomizeOnStart: 1
@@ -1158,7 +1158,7 @@ MonoBehaviour:
     customBorder: {x: 0, y: 0, z: 0, w: 0}
     customPixelsPerUnit: 100
     customFilterMode: 2
-    wrapMode: 1
+    wrapMode: 0
     startFrame: 0
     useUnscaledTime: 0
 --- !u!212 &341093958
@@ -1198,7 +1198,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 213499073184540490, guid: be2d972ed0884744abb4574ea6179093, type: 2}
+  m_Sprite: {fileID: 213479774819160726, guid: 1c8bebd0bf30b49a7851d2e2cd1f71a7, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
