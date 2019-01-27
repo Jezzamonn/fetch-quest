@@ -4,6 +4,9 @@ public static class EventManager
 {
     public static readonly CallbackEvent<GoalData.Action, GoalData.ObjectId, Vector3> onDogAction =
         new CallbackEvent<GoalData.Action, GoalData.ObjectId, Vector3>();
+
+    public static readonly CallbackEvent onGameStart =
+        new CallbackEvent();
 }
 
 // Generic event classes
