@@ -5,6 +5,7 @@ public class FeedbackUI : MonoBehaviour
     public bool isPositive;
 
     [SerializeField] private AnimationCurve xCurve;
+    [SerializeField] private RandomSound randomSound;
 
     private readonly Timer animTimer = new Timer();
 
@@ -35,6 +36,8 @@ public class FeedbackUI : MonoBehaviour
         animTimer.Start(GetLastCurveTime(xCurve));
 
         gameObject.SetActive(true);
+
+        randomSound.Play();
     }
 
     private void Update()

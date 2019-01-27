@@ -8,6 +8,8 @@ public class DogAnimator : MonoBehaviour
 
     [SerializeField] private DoodleAnimationFile contextAnim;
 
+    [SerializeField] private RandomSound randomSound;
+
     [HideInInspector] public Vector2 moveInput;
 
     private DoodleAnimator animator;
@@ -31,6 +33,7 @@ public class DogAnimator : MonoBehaviour
     private void OnAction(GoalData.Action action, GoalData.ObjectId objectId, Vector3 position)
     {
         currentAction = action;
+        randomSound.Play();
     }
 
     private void OnActionEnd(GoalData.Action action, GoalData.ObjectId objectId, Vector3 position)
