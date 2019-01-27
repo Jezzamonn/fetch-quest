@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1566551335, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
-  m_Name: BedRoomWall
+  m_Name: Bed1Wall
   m_EditorClassIdentifier: 
   frames:
-  - _texture: {fileID: 28423325629643182}
-    _sprite: {fileID: 213171065808819020}
+  - _texture: {fileID: 28994844484321816}
+    _sprite: {fileID: 213431312719107130}
     m_Length: 1
   playbackMode: 2
   framesPerSecond: 8
@@ -25,7 +25,7 @@ MonoBehaviour:
   spriteSheetAssetGUID: 
   sounds: []
   version: 2029
---- !u!28 &28423325629643182
+--- !u!28 &28994844484321816
 Texture2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,7 +65,7 @@ Texture2D:
     offset: 0
     size: 0
     path: 
---- !u!213 &213171065808819020
+--- !u!213 &213431312719107130
 Sprite:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,7 +92,7 @@ Sprite:
   m_SpriteAtlas: {fileID: 0}
   m_RD:
     serializedVersion: 3
-    texture: {fileID: 28423325629643182}
+    texture: {fileID: 28994844484321816}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
     - serializedVersion: 2
@@ -182,7 +182,7 @@ Sprite:
     downscaleMultiplier: 1
   m_AtlasRD:
     serializedVersion: 3
-    texture: {fileID: 28423325629643182}
+    texture: {fileID: 28994844484321816}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
     - serializedVersion: 2
