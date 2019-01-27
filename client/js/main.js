@@ -25,11 +25,15 @@ function init() {
 	// Kick off the update loop
 	window.requestAnimationFrame(everyFrame);
 
-	document.addEventListener('mousedown', () => sendMessage());
-	document.addEventListener('touchstart', () => sendMessage());
+	// document.addEventListener('mousedown', () => sendMessage());
+	// document.addEventListener('touchstart', () => sendMessage());
+	document.querySelector('.button-bad').addEventListener('click', () => sendMessage('bad'))
+	document.querySelector('.button-good').addEventListener('click', () => sendMessage('good'))
 
 	// Connect to socket.io!
 	socket = io('http://35.231.246.171:3000');
+
+	beRandomColor();
 }
 
 // TODO: Make tweak this to allow frame skipping for slow computers. Maybe.
@@ -75,12 +79,14 @@ function handleResize(evt) {
 	render();
 }
 
-function sendMessage() {
+function beRandomColor() {
 	const body = document.querySelector('body');
 	const color = hsl(Math.random(), 0.6, 0.2);
 	body.style.backgroundColor = color;
+}
 
-	socket.emit('reaction', 'good');
+function sendMessage(message) {
+	socket.emit('reaction', message);
 }
 
 init();
