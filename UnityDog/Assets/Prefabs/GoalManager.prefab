@@ -44,5 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalData:
+  - {fileID: 11400000, guid: 8c2d3a4fdf8406a4c970356eb609cf2f, type: 2}
   - {fileID: 11400000, guid: 5839c45d1c7da4d458c6e9e02732ebdf, type: 2}
+  - {fileID: 11400000, guid: 8d177fd24e3b5ea4dac28dec191c6a7f, type: 2}
+  - {fileID: 11400000, guid: c8eee59b90e526b4d8eb5aef49608cf3, type: 2}
   - {fileID: 11400000, guid: 0ef41424dd41a7b4296875aa47608d39, type: 2}
+  - {fileID: 11400000, guid: a4871e8b7c8296f4ba250debf8f21bf4, type: 2}
+  currentGoalItem: 0

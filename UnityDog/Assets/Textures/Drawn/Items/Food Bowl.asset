@@ -130,7 +130,7 @@ Sprite:
   m_AtlasName: 
   m_PackingTag: 
   m_RenderDataKey:
-    00000000000000000000000000000000: 0
+    daf3f9b0a625d4544bd09879971f596a: 213605205294368812
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
@@ -338,7 +338,7 @@ Sprite:
   m_AtlasName: 
   m_PackingTag: 
   m_RenderDataKey:
-    00000000000000000000000000000000: 0
+    daf3f9b0a625d4544bd09879971f596a: 213783808240584872
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:

@@ -16,12 +16,12 @@ public class InteractableObject : MonoBehaviour
 
     public void IsContextObject()
     {
-        meshRenderer.material = closestMat;
+        //meshRenderer.material = closestMat;
     }
 
     public void NotContextObject()
     {
-        meshRenderer.material = normalMat;
+        //meshRenderer.material = normalMat;
     }
 
     public void OnInteract()

@@ -29,6 +29,7 @@ public class GoalManager : MonoBehaviour
     }
 
     [SerializeField] private GoalData[] goalData;
+    [ReadOnly][SerializeField] private GoalData.ObjectId currentGoalItem;
 
     private int goalIndex;
     private List<Goal> goals = new List<Goal>();
@@ -69,6 +70,7 @@ public class GoalManager : MonoBehaviour
         }
 
         Shuffle(goals);
+        currentGoalItem = goals[goalIndex].objectId;
     }
 
     private void OnPlayerAction(GoalData.Action action, GoalData.ObjectId objectId, Vector3 location)
@@ -85,6 +87,8 @@ public class GoalManager : MonoBehaviour
         //TODO: reward points/time
 
         ++goalIndex;
+
+        currentGoalItem = goals[goalIndex].objectId;
 
         NotifyCurrentGoal();
     }

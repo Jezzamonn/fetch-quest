@@ -23,6 +23,7 @@ public class GoalData : ScriptableObject
         Food,
         Fridge,
         Vase,
+        Fern,
     }
 
     [Serializable]
