@@ -7,7 +7,7 @@ public class RandomSound : MonoBehaviour
     public AudioSource AudioSource;
     public AudioClip[] AudioClips;
 
-    private void OnEnable()
+    public void Play()
     {
         AudioClip clip = AudioClips[Random.Range(0, AudioClips.Length)];
         AudioSource.clip = clip;

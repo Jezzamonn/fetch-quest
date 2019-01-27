@@ -103,6 +103,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  randomSound: {fileID: 2295401885183303191}
 --- !u!82 &4756366957944134234
 AudioSource:
   m_ObjectHideFlags: 0
