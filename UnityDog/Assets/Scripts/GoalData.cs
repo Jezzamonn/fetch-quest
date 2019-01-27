@@ -31,6 +31,10 @@ public class GoalData : ScriptableObject
         Fern,
         [Description("a tree")]
         Tree,
+        [Description("a bush")]
+        Bush,
+        [Description("a tv")]
+        TV,
     }
 
     [Serializable]
