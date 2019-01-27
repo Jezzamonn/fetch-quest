@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4712,7 +4712,7 @@ Transform:
   m_GameObject: {fileID: 341093955}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 12.14, y: 0, z: 9.576}
-  m_LocalScale: {x: 0.8066168, y: 1, z: 1}
+  m_LocalScale: {x: 12.905872, y: 16, z: 1}
   m_Children: []
   m_Father: {fileID: 1930029840}
   m_RootOrder: 2
@@ -4786,7 +4786,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 20.3125, y: 8.740379}
+  m_Size: {x: 1.2695315, y: 0.546274}
   m_AdaptiveModeThreshold: 0.539
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -24704,17 +24704,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3155377241694428827, guid: e08331887ce644b33805513c248da526,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 213954342919103540, guid: ee75e4428831440af8ed42955c30abf1,
+        type: 2}
     - target: {fileID: 3155377241817224613, guid: e08331887ce644b33805513c248da526,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 213936979829288296, guid: 81bf9f3829da5408c8e898853fd1b715,
-        type: 2}
-    - target: {fileID: 3155377243043709631, guid: e08331887ce644b33805513c248da526,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 213347210165326282, guid: b7d5538611f5740e394852824038acbe,
         type: 2}
     - target: {fileID: 3155377242598864678, guid: e08331887ce644b33805513c248da526,
         type: 3}
@@ -24722,11 +24722,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 213347210165326282, guid: b7d5538611f5740e394852824038acbe,
         type: 2}
-    - target: {fileID: 3155377241694428827, guid: e08331887ce644b33805513c248da526,
+    - target: {fileID: 3155377243043709631, guid: e08331887ce644b33805513c248da526,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 213954342919103540, guid: ee75e4428831440af8ed42955c30abf1,
+      objectReference: {fileID: 213347210165326282, guid: b7d5538611f5740e394852824038acbe,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e08331887ce644b33805513c248da526, type: 3}
