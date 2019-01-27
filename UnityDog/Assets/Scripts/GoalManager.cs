@@ -145,6 +145,8 @@ public class GoalManager : MonoBehaviour
             objectId != goal.objectId ||
             !ZoneManager.IsPointInZone(location, goal.zoneId))
         {
+            score -= (int)(0.5f * pointsPerGoal);
+            score = Mathf.Max(score, 0);
             return;
         }
 
