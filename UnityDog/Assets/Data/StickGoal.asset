@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: StickGoal
   m_EditorClassIdentifier: 
   requiredObject: 1
-  validActions: 00000000
-  validZones: 00000000
+  validActions: 01000000
+  validZones: 01000000020000000400000005000000
