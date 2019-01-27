@@ -15,14 +15,19 @@ public class GoalData : ScriptableObject
     public enum ObjectId
     {
         NONE,
-        [Description("Pick up the stick")]
+        [Description("a stick")]
         Stick,
-        [Description("Lie on the bed")]
+        [Description("the bed")]
         Bed,
+        [Description("a bone")]
         Bone,
+        [Description("food")]
         Food,
+        [Description("the fridge")]
         Fridge,
+        [Description("the vase")]
         Vase,
+        [Description("a fern")]
         Fern,
     }
 
