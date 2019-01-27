@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EnumExt;
+using UnityEngine.UI;
 
 public class GoalManager : MonoBehaviour
 {
+    private static string TIME_FORMAT = "{0} : {1}";
+
     [Serializable]
     private struct Goal
     {
@@ -32,8 +35,19 @@ public class GoalManager : MonoBehaviour
     [SerializeField] private GoalData[] goalData;
     [ReadOnly][SerializeField] private GoalData.ObjectId currentGoalItem;
 
+    [Space(20)]
+
+    [SerializeField] private float totalTime;
+    [SerializeField] private int pointsPerGoal;
+
+    [SerializeField] private ScoreUI scoreUI;
+    [SerializeField] private Text timeUI;
+
     private int goalIndex;
     private List<Goal> goals = new List<Goal>();
+
+    private int score;
+    private readonly Timer gameTimer = new Timer();
 
     private Goal CurrentGoal
     {
@@ -51,6 +65,9 @@ public class GoalManager : MonoBehaviour
         EventManager.onDogAction.Register(onPlayerActionDelegate);
 
         InitializeGoals();
+        gameTimer.Start(totalTime);
+
+        scoreUI.UpdateScore(score);
     }
 
     private void Start()
@@ -65,6 +82,21 @@ public class GoalManager : MonoBehaviour
         while (true) {
             yield return new WaitForSeconds(5f);
             NotifyCurrentGoal();
+        }
+    }
+
+    private void Update()
+    {
+        gameTimer.Tick(Time.deltaTime);
+
+        float timeRemaining = gameTimer.Remaining();
+        float m = (int)(timeRemaining / 60);
+        float s = (int)(timeRemaining % 60);
+        timeUI.text = string.Format(TIME_FORMAT, m.ToString("00"), s.ToString("00"));
+
+        if (gameTimer.IsDone())
+        {
+            //TODO: GAME OVER
         }
     }
 
@@ -95,7 +127,8 @@ public class GoalManager : MonoBehaviour
             return;
         }
 
-        //TODO: reward points/time
+        score += pointsPerGoal;
+        scoreUI.UpdateScore(score);
 
         ++goalIndex;
 
