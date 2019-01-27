@@ -33,6 +33,8 @@ function init() {
 	// Connect to socket.io!
 	socket = io('http://35.231.246.171:3000');
 
+	socket.on('goal-update', message => updateGoal(message));
+
 	beRandomColor();
 }
 
@@ -87,6 +89,12 @@ function beRandomColor() {
 
 function sendMessage(message) {
 	socket.emit('reaction', message);
+}
+
+function updateGoal(message) {
+	const goal = document.querySelector('#goal');
+	// Should be safe from XSS because it's textContent
+	goal.textContent = message;
 }
 
 init();
