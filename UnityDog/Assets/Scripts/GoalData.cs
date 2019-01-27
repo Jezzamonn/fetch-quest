@@ -16,6 +16,10 @@ public class GoalData : ScriptableObject
         NONE,
         Stick,
         Bed,
+        Bone,
+        Food,
+        Fridge,
+        Vase,
     }
 
     [Serializable]
