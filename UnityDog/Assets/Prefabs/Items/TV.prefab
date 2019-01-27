@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 213047342220607702, guid: 2e816849d6bc06c4080b6792bab86c7f, type: 2}
+  m_Sprite: {fileID: 213233623666895240, guid: 2e816849d6bc06c4080b6792bab86c7f, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -195,7 +195,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8135095529767233569}
-  m_Material: {fileID: 13400000, guid: d959e19f917ddd043a6c361ed7f684b3, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -209,9 +209,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8135095529767233569}
   serializedVersion: 2
-  m_Mass: 0.5
+  m_Mass: 0.2
   m_Drag: 3
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
