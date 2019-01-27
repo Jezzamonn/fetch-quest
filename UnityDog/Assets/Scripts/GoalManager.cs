@@ -140,6 +140,7 @@ public class GoalManager : MonoBehaviour
     private void OnPlayerAction(GoalData.Action action, GoalData.ObjectId objectId, Vector3 location)
     {
         Goal goal = CurrentGoal;
+        EventManager.onGoalDone.Dispatch();
 
         if (action != goal.action ||
             objectId != goal.objectId ||
@@ -152,6 +153,7 @@ public class GoalManager : MonoBehaviour
 
         score += pointsPerGoal;
         scoreUI.UpdateScore(score);
+        
 
         ++goalIndex;
 
