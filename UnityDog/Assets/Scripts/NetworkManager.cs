@@ -6,7 +6,7 @@ using SocketIO;
 public class NetworkManager : MonoBehaviour
 {
 
-    private static NetworkManager instance;
+    public static NetworkManager instance;
 
     public SocketIOComponent socket;
 
@@ -44,5 +44,12 @@ public class NetworkManager : MonoBehaviour
         else {
             Debug.LogError("Don't know how to deal with reaction " + reaction);
         }
+    }
+
+    public void SendGoal(string goalDescription)
+    {
+        JSONObject obj = JSONObject.Create(JSONObject.Type.STRING);
+        obj.str = goalDescription;
+        socket.Emit("goal-update", obj);
     }
 }

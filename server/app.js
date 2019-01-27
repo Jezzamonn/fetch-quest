@@ -8,5 +8,10 @@ io.on('connection', (socket) => {
         // TODO: Only send to the main dude
         socket.broadcast.emit('reaction', message);
     });
+
+    socket.on('goal-update', (message) => {
+        console.log(`New goal: ${message}`);
+        socket.broadcast.emit('goal-update', message);
+    });
     
 });

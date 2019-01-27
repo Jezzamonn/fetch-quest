@@ -35,10 +35,12 @@ public class FeedbackManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             feedbackQueue.Enqueue(true);
+            NetworkManager.instance.SendGoal("Be a good dog");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             feedbackQueue.Enqueue(false);
+            NetworkManager.instance.SendGoal("Be a bad dog");
         }
         /////////////////////////////////////////////////////
 

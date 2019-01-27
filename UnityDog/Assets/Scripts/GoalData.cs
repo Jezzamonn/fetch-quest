@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using System.ComponentModel;
 
 [CreateAssetMenu(fileName = "GoalData", menuName = "Data/GoalData", order = 1)]
 public class GoalData : ScriptableObject
@@ -13,7 +14,9 @@ public class GoalData : ScriptableObject
     public enum ObjectId
     {
         NONE,
+        [Description("Pick up the stick")]
         Stick,
+        [Description("Lie on the bed")]
         Bed,
     }
 
@@ -21,10 +24,15 @@ public class GoalData : ScriptableObject
     public enum ZoneId
     {
         ANY,
+        [Description("kitchen")]
         Kitchen,
+        [Description("living room")]
         LivingRoom,
+        [Description("yard")]
         Yard,
+        [Description("master bedroom")]
         Bedroom1,
+        [Description("small bedroom")]
         Bedroom2,
     }
 
@@ -43,4 +51,5 @@ public class GoalData : ScriptableObject
         int index = UnityEngine.Random.Range(0, validZones.Length);
         return validZones[index];
     }
+
 }

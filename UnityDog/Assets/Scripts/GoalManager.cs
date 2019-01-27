@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using EnumExt;
 
 public class GoalManager : MonoBehaviour
 {
@@ -16,6 +17,14 @@ public class GoalManager : MonoBehaviour
             action = inAction;
             objectId = inObjectId;
             zoneId = inZoneId;
+        }
+
+        public string Description
+        {
+            get
+            {
+                return objectId.GetDescription();
+            }
         }
     }
 
