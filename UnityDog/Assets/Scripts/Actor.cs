@@ -6,6 +6,8 @@ public class Actor : MonoBehaviour
     private Dictionary<Collider, InteractableObject> nearbyObjects = new Dictionary<Collider, InteractableObject>();
     private InteractableObject closestObject;
 
+    public FollowInteractable Arrow;
+
     private void Update()
     {
         UpdateClosest();
@@ -41,6 +43,8 @@ public class Actor : MonoBehaviour
         newClosest?.IsContextObject();
 
         closestObject = newClosest;
+
+        Arrow.Target = closestObject;
     }
 
     private void OnTriggerEnter(Collider other)

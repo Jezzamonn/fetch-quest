@@ -4,24 +4,22 @@ public class InteractableObject : MonoBehaviour
 {
     public GoalData.ObjectId objectId;
 
-    [SerializeField] private Material normalMat;
-    [SerializeField] private Material closestMat;
+    public float Height = 1f;
 
     private MeshRenderer meshRenderer;
 
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
+        NotContextObject();
     }
 
     public void IsContextObject()
     {
-        //meshRenderer.material = closestMat;
     }
 
     public void NotContextObject()
     {
-        //meshRenderer.material = normalMat;
     }
 
     public void OnInteract()

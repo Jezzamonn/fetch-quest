@@ -231,5 +231,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectId: 6
-  normalMat: {fileID: 0}
-  closestMat: {fileID: 0}
+  Height: 0.5
