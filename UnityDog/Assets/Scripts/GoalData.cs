@@ -29,6 +29,8 @@ public class GoalData : ScriptableObject
         Vase,
         [Description("a fern")]
         Fern,
+        [Description("a tree")]
+        Tree,
     }
 
     [Serializable]
