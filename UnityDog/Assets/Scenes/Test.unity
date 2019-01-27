@@ -5531,7 +5531,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -2
-  m_Sprite: {fileID: 213499073184540490, guid: be2d972ed0884744abb4574ea6179093, type: 2}
+  m_Sprite: {fileID: 213977971905658490, guid: be2d972ed0884744abb4574ea6179093, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6751,11 +6751,6 @@ PrefabInstance:
       propertyPath: timeUI
       value: 
       objectReference: {fileID: 638494564}
-    - target: {fileID: 3367562316178805934, guid: d5f015af85914424ba8f2686076fafd1,
-        type: 3}
-      propertyPath: totalTime
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5f015af85914424ba8f2686076fafd1, type: 3}
 --- !u!1001 &5987712595461766460

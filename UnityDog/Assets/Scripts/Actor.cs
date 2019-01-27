@@ -3,12 +3,15 @@ using UnityEngine;
 
 public class Actor : MonoBehaviour
 {
+    public FollowInteractable Arrow;
+    [SerializeField] private float actionTime;
+
     private Dictionary<Collider, InteractableObject> nearbyObjects = new Dictionary<Collider, InteractableObject>();
     private InteractableObject closestObject;
 
-    public FollowInteractable Arrow;
-
-    private bool canAct;
+    private bool gameRunning;
+    private GoalData.Action lastAction;
+    private readonly Timer actionTimer = new Timer();
 
     private void Awake()
     {
@@ -24,14 +27,26 @@ public class Actor : MonoBehaviour
 
     private void GameStateToggle()
     {
-        canAct = !canAct;
+        gameRunning = !gameRunning;
     }
 
     private void Update()
     {
-        if (!canAct)
+        if (!gameRunning)
         {
             return;
+        }
+
+        bool wasDone = actionTimer.IsDone();
+        actionTimer.Tick(Time.deltaTime);
+        if (!actionTimer.IsDone())
+        {
+            return;
+        }
+
+        if (!wasDone)
+        {
+            EventManager.onDogActionEnd.Dispatch(lastAction, GoalData.ObjectId.NONE, Vector3.zero);
         }
 
         UpdateClosest();
@@ -39,7 +54,10 @@ public class Actor : MonoBehaviour
         //process input
         if (closestObject != null && Input.GetButtonDown("ContextAction"))
         {
-            EventManager.onDogAction.Dispatch(GoalData.Action.Context, closestObject.objectId, transform.position);
+            lastAction = GoalData.Action.Context;
+            actionTimer.Start(actionTime);
+
+            EventManager.onDogAction.Dispatch(lastAction, closestObject.objectId, transform.position);
             closestObject.OnInteract();
         }
     }
