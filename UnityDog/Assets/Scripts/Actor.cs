@@ -8,8 +8,30 @@ public class Actor : MonoBehaviour
 
     public FollowInteractable Arrow;
 
+    private bool canAct;
+
+    private void Awake()
+    {
+        EventManager.onGameStart.Register(OnGameStarted);
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.onGameStart.Unregister(OnGameStarted);
+    }
+
+    private void OnGameStarted()
+    {
+        canAct = true;
+    }
+
     private void Update()
     {
+        if (!canAct)
+        {
+            return;
+        }
+
         UpdateClosest();
 
         //process input

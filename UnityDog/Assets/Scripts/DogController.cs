@@ -17,15 +17,33 @@ public class DogController : MonoBehaviour
     private bool lastMoveRight;
 
     private Vector2 moveInput;
+    private bool canAct;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<DoodleAnimator>();
+
+        EventManager.onGameStart.Register(OnGameStarted);
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.onGameStart.Unregister(OnGameStarted);
+    }
+
+    private void OnGameStarted()
+    {
+        canAct = true;
     }
 
     private void Update()
     {
+        if (!canAct)
+        {
+            return;
+        }
+
         moveInput.x = Input.GetAxis("Horizontal");
         moveInput.y = Input.GetAxis("Vertical");
         bool hasInput = moveInput.sqrMagnitude > 0.0f;
