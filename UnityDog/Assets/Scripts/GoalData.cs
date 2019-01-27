@@ -19,6 +19,10 @@ public class GoalData : ScriptableObject
         Stick,
         [Description("Lie on the bed")]
         Bed,
+        Bone,
+        Food,
+        Fridge,
+        Vase,
     }
 
     [Serializable]

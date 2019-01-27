@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 public class Zone : MonoBehaviour
@@ -9,15 +10,12 @@ public class Zone : MonoBehaviour
     {
         Collider collider = GetComponent<Collider>();
 
-        if (ZoneManager.zones.ContainsKey(zoneId))
+        if (!ZoneManager.zones.ContainsKey(zoneId))
         {
-            Debug.LogErrorFormat("Tried to add zoneId {0} for {1} that already exists for {2}.",
-                zoneId,
-                collider.gameObject.name,
-                ZoneManager.zones[zoneId].gameObject.name);
+            ZoneManager.zones.Add(zoneId, new List<Collider>());
         }
 
-        ZoneManager.zones.Add(zoneId, collider);
+        ZoneManager.zones[zoneId].Add(collider);
     }
 
     private void OnDestroy()
