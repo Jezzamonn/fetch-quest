@@ -68,7 +68,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 'Join in!
 
-    dbacee4a.ngrok.io'
+    jezzamon.com/dog'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ac5c332e89ffb4ad39f6d553b23bba36, type: 2}
   m_sharedMaterial: {fileID: 21875849340695430, guid: ac5c332e89ffb4ad39f6d553b23bba36,
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 9
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -138,12 +138,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 12.743744}
   m_textInfo:
     textComponent: {fileID: 0}
-    characterCount: 26
+    characterCount: 25
     spriteCount: 0
     spaceCount: 2
     wordCount: 5
     linkCount: 0
-    lineCount: 2
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
