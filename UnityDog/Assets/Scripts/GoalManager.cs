@@ -33,6 +33,14 @@ public class GoalManager : MonoBehaviour
     private int goalIndex;
     private List<Goal> goals = new List<Goal>();
 
+    private Goal CurrentGoal
+    {
+        get
+        {
+            return goals[goalIndex];
+        }
+    }
+
     private Action<GoalData.Action, GoalData.ObjectId, Vector3> onPlayerActionDelegate;
 
     private void Awake()
@@ -41,6 +49,11 @@ public class GoalManager : MonoBehaviour
         EventManager.onDogAction.Register(onPlayerActionDelegate);
 
         InitializeGoals();
+    }
+
+    private void Start()
+    {
+        NotifyCurrentGoal();
     }
 
     private void OnDestroy()
@@ -60,7 +73,8 @@ public class GoalManager : MonoBehaviour
 
     private void OnPlayerAction(GoalData.Action action, GoalData.ObjectId objectId, Vector3 location)
     {
-        Goal goal = goals[goalIndex];
+        Goal goal = CurrentGoal;
+
         if (action != goal.action ||
             objectId != goal.objectId ||
             !ZoneManager.IsPointInZone(location, goal.zoneId))
@@ -68,11 +82,18 @@ public class GoalManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("GOOOOOOOAL!");
-
         //TODO: reward points/time
 
         ++goalIndex;
+
+        NotifyCurrentGoal();
+    }
+
+    public void NotifyCurrentGoal()
+    {
+        string desc = CurrentGoal.Description;
+        Debug.Log(desc);
+        NetworkManager.instance.SendGoal(desc);
     }
 
     //Fisher-Yates shuffle
