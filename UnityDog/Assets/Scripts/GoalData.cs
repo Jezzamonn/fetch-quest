@@ -7,6 +7,7 @@ public class GoalData : ScriptableObject
     public enum Action
     {
         Context,
+        Drop,
     }
 
     [Serializable]
