@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EnumExt;
@@ -55,6 +56,16 @@ public class GoalManager : MonoBehaviour
     private void Start()
     {
         NotifyCurrentGoal();
+
+        StartCoroutine("PeriodicallyNotifyGoal");
+    }
+
+    IEnumerator PeriodicallyNotifyGoal() {
+        // Just, always run until this object dies
+        while (true) {
+            yield return new WaitForSeconds(5f);
+            NotifyCurrentGoal();
+        }
     }
 
     private void OnDestroy()
