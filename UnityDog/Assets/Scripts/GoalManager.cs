@@ -27,7 +27,7 @@ public class GoalManager : MonoBehaviour
         {
             get
             {
-                return objectId.GetDescription();
+                return "Find " + objectId.GetDescription();
             }
         }
     }
