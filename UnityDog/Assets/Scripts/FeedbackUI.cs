@@ -55,7 +55,7 @@ public class FeedbackUI : MonoBehaviour
         }
     }
 
-    private static float GetLastCurveTime(AnimationCurve curve)
+    public static float GetLastCurveTime(AnimationCurve curve)
     {
         int lastKey = curve.keys.Length - 1;
         return curve.keys[lastKey].time;

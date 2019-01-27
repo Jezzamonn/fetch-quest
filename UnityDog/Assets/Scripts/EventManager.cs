@@ -8,6 +8,9 @@ public static class EventManager
     public static readonly CallbackEvent<GoalData.Action, GoalData.ObjectId, Vector3> onDogActionEnd =
         new CallbackEvent<GoalData.Action, GoalData.ObjectId, Vector3>();
 
+    public static readonly CallbackEvent onGoalDone =
+        new CallbackEvent();
+
     public static readonly CallbackEvent onGameStart =
         new CallbackEvent();
 

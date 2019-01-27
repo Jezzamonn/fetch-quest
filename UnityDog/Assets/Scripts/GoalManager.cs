@@ -152,6 +152,8 @@ public class GoalManager : MonoBehaviour
 
         score += pointsPerGoal;
         scoreUI.UpdateScore(score);
+        EventManager.onGoalDone.Dispatch();
+
 
         ++goalIndex;
 
