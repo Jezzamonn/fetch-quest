@@ -22,7 +22,7 @@ const common = {
 const client = {
     entry: './js/main.js',
     output: {
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, 'build/js'),
         filename: 'main.bundle.js'
     },
     devtool: 'source-map'

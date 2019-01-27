@@ -4,13 +4,24 @@
   "description": "",
   "main": "index.js",
   "watch": {
-    "webpack": "js/*.js"
+    "webpack": "js/*.js",
+    "html": {
+      "patterns": "index.html",
+      "extensions": "html",
+      "ignore": "build/*.html"
+    },
+    "css": {
+      "patterns": "css/*.css",
+      "extensions": "css"
+    }
   },
   "scripts": {
     "start": "http-server",
     "webpack": "webpack || exit 1",
-    "watch": "npm-watch webpack",
-    "reload": "reload -b -w build"
+    "html": "cp index.html build/index.html",
+    "css": "rm -r build/css; cp -r css build/css",
+    "watch": "npm-watch",
+    "reload": "reload -b -d build"
   },
   "author": "Jezzamon",
   "license": "ISC",
