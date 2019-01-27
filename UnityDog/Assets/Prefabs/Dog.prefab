@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1933056441}
+  - component: {fileID: 292204460263687591}
   - component: {fileID: 1933056443}
   - component: {fileID: 1933056442}
   m_Layer: 0
@@ -32,6 +33,22 @@ Transform:
   m_Father: {fileID: 5987712596905086823}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &292204460263687591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933056440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b27429648fadef2488336d3c040293ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runAnim: {fileID: 11400000, guid: ee75e4428831440af8ed42955c30abf1, type: 2}
+  idleAnim: {fileID: 11400000, guid: 8b0a308b35f5de545b5cdf400e82a694, type: 2}
+  contextAnim: {fileID: 11400000, guid: 221e20aff2f5f479a936774ade6a0b5a, type: 2}
+  moveInput: {x: 0, y: 0}
 --- !u!212 &1933056443
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -316,10 +333,6 @@ MonoBehaviour:
   speed: 20
   movingDrag: 3
   stopDrag: 15
-  walkLeftAnim: {fileID: 11400000, guid: 283e837a487b3a145a72e0d93df19a22, type: 2}
-  walkRightAnim: {fileID: 11400000, guid: ee75e4428831440af8ed42955c30abf1, type: 2}
-  idleLeftAnim: {fileID: 11400000, guid: 908b644e26a7a0b4e9709b4945813693, type: 2}
-  idleRightAnim: {fileID: 11400000, guid: 8b0a308b35f5de545b5cdf400e82a694, type: 2}
 --- !u!1 &5987712597034423512
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Arrow: {fileID: 0}
+  actionTime: 0.6
 --- !u!135 &5987712597034423515
 SphereCollider:
   m_ObjectHideFlags: 0

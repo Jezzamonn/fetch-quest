@@ -7,41 +7,50 @@ public class DogController : MonoBehaviour
     [SerializeField] private float movingDrag;
     [SerializeField] private float stopDrag;
 
-    [SerializeField] private DoodleAnimationFile walkLeftAnim;
-    [SerializeField] private DoodleAnimationFile walkRightAnim;
-    [SerializeField] private DoodleAnimationFile idleLeftAnim;
-    [SerializeField] private DoodleAnimationFile idleRightAnim;
-
+    private DogAnimator dogAnimator;
     private Rigidbody rb;
-    private DoodleAnimator animator;
-    private bool lastMoveRight;
-
     private Vector2 moveInput;
-    private bool canAct;
+
+    private bool gameStarted;
+    private bool dogBusy;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        animator = GetComponentInChildren<DoodleAnimator>();
+        dogAnimator = GetComponentInChildren<DogAnimator>();
 
-        EventManager.onGameStart.Register(GameStateToggle);
-        EventManager.onGameEnd.Register(GameStateToggle);
+        EventManager.onGameStart.Register(ToggleGameStarted);
+        EventManager.onGameEnd.Register(ToggleGameStarted);
+        EventManager.onDogAction.Register(ToggleBusy);
+        EventManager.onDogActionEnd.Register(ToggleBusy);
     }
 
     private void OnDestroy()
     {
-        EventManager.onGameStart.Unregister(GameStateToggle);
-        EventManager.onGameEnd.Unregister(GameStateToggle);
+        EventManager.onGameStart.Unregister(ToggleGameStarted);
+        EventManager.onGameEnd.Unregister(ToggleGameStarted);
+        EventManager.onDogAction.Unregister(ToggleBusy);
+        EventManager.onDogActionEnd.Unregister(ToggleBusy);
     }
 
-    private void GameStateToggle()
+    private void ToggleGameStarted()
     {
-        canAct = !canAct;
+        gameStarted = !gameStarted;
+    }
+
+    private void ToggleBusy(GoalData.Action action, GoalData.ObjectId objectId, Vector3 position)
+    {
+        dogBusy = !dogBusy;
+    }
+
+    private bool CanAct()
+    {
+        return gameStarted && !dogBusy;
     }
 
     private void Update()
     {
-        if (canAct)
+        if (CanAct())
         {
             moveInput.x = Input.GetAxis("Horizontal");
             moveInput.y = Input.GetAxis("Vertical");
@@ -50,26 +59,9 @@ public class DogController : MonoBehaviour
         {
             moveInput = Vector2.zero;
         }
-        
-        bool hasInput = moveInput.sqrMagnitude > 0.0f;
 
-        rb.drag = hasInput ? movingDrag : stopDrag;
-
-        DoodleAnimationFile desiredAnim;
-        if (hasInput)
-        {
-            lastMoveRight = moveInput.x > 0.0f;
-            desiredAnim = lastMoveRight ? walkRightAnim : walkLeftAnim;
-        }
-        else
-        {
-            desiredAnim = lastMoveRight ? idleRightAnim : idleLeftAnim;
-        }
-
-        if (desiredAnim != animator.File)
-        {
-            animator.ChangeAnimation(desiredAnim);
-        }
+        dogAnimator.moveInput = moveInput;
+        rb.drag = moveInput.sqrMagnitude > 0.0f ? movingDrag : stopDrag;
     }
 
     private void FixedUpdate()
