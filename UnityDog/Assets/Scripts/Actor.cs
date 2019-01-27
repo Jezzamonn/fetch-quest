@@ -12,17 +12,19 @@ public class Actor : MonoBehaviour
 
     private void Awake()
     {
-        EventManager.onGameStart.Register(OnGameStarted);
+        EventManager.onGameStart.Register(GameStateToggle);
+        EventManager.onGameEnd.Register(GameStateToggle);
     }
 
     private void OnDestroy()
     {
-        EventManager.onGameStart.Unregister(OnGameStarted);
+        EventManager.onGameStart.Unregister(GameStateToggle);
+        EventManager.onGameEnd.Unregister(GameStateToggle);
     }
 
-    private void OnGameStarted()
+    private void GameStateToggle()
     {
-        canAct = true;
+        canAct = !canAct;
     }
 
     private void Update()
