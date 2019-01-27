@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4315044783905301708}
   - component: {fileID: 2815358147882449857}
   - component: {fileID: 1995960435554591054}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Stick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 2887728571428502728}
   - component: {fileID: 7573243239593352203}
   - component: {fileID: 4006176723570208006}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 358894454091539211}
   - component: {fileID: 358894454091539209}
   - component: {fileID: 358894454091539210}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 358894454408010981}
   - component: {fileID: 358894454408010982}
   - component: {fileID: 358894454408011001}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ Transform:
   m_GameObject: {fileID: 358894454408010983}
   m_LocalRotation: {x: 0.49683782, y: 0.5029815, z: -0.509502, w: 0.4904789}
   m_LocalPosition: {x: 22.44, y: 0.209, z: 13.249023}
-  m_LocalScale: {x: 0.36021, y: 0.36021, z: 0.36021}
+  m_LocalScale: {x: 0.36021018, y: 0.36021018, z: 0.3602103}
   m_Children:
   - {fileID: 358894454091539211}
   m_Father: {fileID: 0}
