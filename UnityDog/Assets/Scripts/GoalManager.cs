@@ -43,6 +43,8 @@ public class GoalManager : MonoBehaviour
     [SerializeField] private ScoreUI scoreUI;
     [SerializeField] private Text timeUI;
 
+    public static bool gameStarted;
+
     private int goalIndex;
     private List<Goal> goals = new List<Goal>();
 
@@ -65,9 +67,11 @@ public class GoalManager : MonoBehaviour
         EventManager.onDogAction.Register(onPlayerActionDelegate);
 
         InitializeGoals();
-        gameTimer.Start(totalTime);
 
         scoreUI.UpdateScore(score);
+
+        gameStarted = false;
+        EventManager.onGameStart.Register(OnGameStarted);
     }
 
     private void Start()
@@ -75,6 +79,17 @@ public class GoalManager : MonoBehaviour
         NotifyCurrentGoal();
 
         StartCoroutine("PeriodicallyNotifyGoal");
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.onGameStart.Unregister(OnGameStarted);
+        EventManager.onDogAction.Unregister(onPlayerActionDelegate);
+    }
+
+    private void OnGameStarted()
+    {
+        gameTimer.Start(totalTime);
     }
 
     IEnumerator PeriodicallyNotifyGoal() {
@@ -98,11 +113,6 @@ public class GoalManager : MonoBehaviour
         {
             //TODO: GAME OVER
         }
-    }
-
-    private void OnDestroy()
-    {
-        EventManager.onDogAction.Unregister(onPlayerActionDelegate);
     }
 
     private void InitializeGoals()
