@@ -24,28 +24,33 @@ public class DogController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<DoodleAnimator>();
 
-        EventManager.onGameStart.Register(OnGameStarted);
+        EventManager.onGameStart.Register(GameStateToggle);
+        EventManager.onGameEnd.Register(GameStateToggle);
     }
 
     private void OnDestroy()
     {
-        EventManager.onGameStart.Unregister(OnGameStarted);
+        EventManager.onGameStart.Unregister(GameStateToggle);
+        EventManager.onGameEnd.Unregister(GameStateToggle);
     }
 
-    private void OnGameStarted()
+    private void GameStateToggle()
     {
-        canAct = true;
+        canAct = !canAct;
     }
 
     private void Update()
     {
-        if (!canAct)
+        if (canAct)
         {
-            return;
+            moveInput.x = Input.GetAxis("Horizontal");
+            moveInput.y = Input.GetAxis("Vertical");
         }
-
-        moveInput.x = Input.GetAxis("Horizontal");
-        moveInput.y = Input.GetAxis("Vertical");
+        else
+        {
+            moveInput = Vector2.zero;
+        }
+        
         bool hasInput = moveInput.sqrMagnitude > 0.0f;
 
         rb.drag = hasInput ? movingDrag : stopDrag;

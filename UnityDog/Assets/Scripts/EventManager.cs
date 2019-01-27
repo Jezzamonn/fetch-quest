@@ -7,6 +7,9 @@ public static class EventManager
 
     public static readonly CallbackEvent onGameStart =
         new CallbackEvent();
+
+    public static readonly CallbackEvent onGameEnd =
+        new CallbackEvent();
 }
 
 // Generic event classes

@@ -43,7 +43,8 @@ public class GoalManager : MonoBehaviour
     [SerializeField] private ScoreUI scoreUI;
     [SerializeField] private Text timeUI;
 
-    public static bool gameStarted;
+    private bool gameStarted;
+    private bool gameOver;
 
     private int goalIndex;
     private List<Goal> goals = new List<Goal>();
@@ -65,13 +66,13 @@ public class GoalManager : MonoBehaviour
     {
         onPlayerActionDelegate = OnPlayerAction;
         EventManager.onDogAction.Register(onPlayerActionDelegate);
+        EventManager.onGameStart.Register(OnGameStarted);
 
         InitializeGoals();
+        gameTimer.Start(totalTime);
 
         scoreUI.UpdateScore(score);
-
-        gameStarted = false;
-        EventManager.onGameStart.Register(OnGameStarted);
+        UpdateTimerUI();
     }
 
     private void Start()
@@ -89,7 +90,7 @@ public class GoalManager : MonoBehaviour
 
     private void OnGameStarted()
     {
-        gameTimer.Start(totalTime);
+        gameStarted = true;
     }
 
     IEnumerator PeriodicallyNotifyGoal() {
@@ -102,17 +103,27 @@ public class GoalManager : MonoBehaviour
 
     private void Update()
     {
-        gameTimer.Tick(Time.deltaTime);
+        if (!gameStarted)
+        {
+            return;
+        }
 
+        gameTimer.Tick(Time.deltaTime);
+        UpdateTimerUI();
+
+        if (!gameOver && gameTimer.IsDone())
+        {
+            gameOver = true;
+            EventManager.onGameEnd.Dispatch();
+        }
+    }
+
+    private void UpdateTimerUI()
+    {
         float timeRemaining = gameTimer.Remaining();
         float m = (int)(timeRemaining / 60);
         float s = (int)(timeRemaining % 60);
         timeUI.text = string.Format(TIME_FORMAT, m.ToString("00"), s.ToString("00"));
-
-        if (gameTimer.IsDone())
-        {
-            //TODO: GAME OVER
-        }
     }
 
     private void InitializeGoals()
