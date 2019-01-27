@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 213954342919103540, guid: ee75e4428831440af8ed42955c30abf1, type: 2}
+  m_Sprite: {fileID: 213456409547618886, guid: ee75e4428831440af8ed42955c30abf1, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_States: []
   m_File: {fileID: 11400000, guid: ee75e4428831440af8ed42955c30abf1, type: 2}
-  speed: 1
+  speed: 1.55
   m_Settings:
     randomizeOnStart: 1
     playOnStart: 1
