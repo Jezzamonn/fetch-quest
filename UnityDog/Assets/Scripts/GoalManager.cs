@@ -147,6 +147,7 @@ public class GoalManager : MonoBehaviour
         {
             score -= (int)(0.5f * pointsPerGoal);
             score = Mathf.Max(score, 0);
+            scoreUI.UpdateScore(score);
             return;
         }
 
