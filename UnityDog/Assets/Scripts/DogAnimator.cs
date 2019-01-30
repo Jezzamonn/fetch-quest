@@ -46,10 +46,18 @@ public class DogAnimator : MonoBehaviour
         bool hasInput = moveInput.sqrMagnitude > 0.0f;
         if (hasInput)
         {
-            lastMoveRight = moveInput.x > 0.0f;
-            Vector3 scale = transform.localScale;
-            scale.x = lastMoveRight ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
-            transform.localScale = scale;
+            if (moveInput.x > 0.1f)
+            {
+                Vector3 scale = transform.localScale;
+                scale.x = Mathf.Abs(scale.x);
+                transform.localScale = scale;
+            }
+            else if (moveInput.x < -0.1f)
+            {
+                Vector3 scale = transform.localScale;
+                scale.x = -Mathf.Abs(scale.x);
+                transform.localScale = scale;
+            }
         }
 
         UpdateAnim(hasInput);
