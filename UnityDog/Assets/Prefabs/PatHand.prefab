@@ -53,23 +53,41 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 16.340689
-      outSlope: 16.340689
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 2.6405318
-      value: 43.14811
-      inSlope: 16.340689
-      outSlope: 16.340689
-      tangentMode: 34
+      time: -0.002917421
+      value: -911.4635
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.25728464
+      value: 60.519714
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0087936
+      value: 60.519714
+      inSlope: Infinity
+      outSlope: 1.6773174
+      tangentMode: 7
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.45
+      value: -911.4635
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -101,14 +119,14 @@ RectTransform:
   m_GameObject: {fileID: 3434685511852308231}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -101}
-  m_LocalScale: {x: 1.2153, y: 1.2153, z: 1.2153}
+  m_LocalScale: {x: 1.4754957, y: 1.4754957, z: 1.4754957}
   m_Children: []
   m_Father: {fileID: 7449276603098653117}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -468, y: -43}
+  m_AnchoredPosition: {x: -523, y: -43}
   m_SizeDelta: {x: 800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9007829468680136325
