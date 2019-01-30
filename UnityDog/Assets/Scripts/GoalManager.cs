@@ -150,8 +150,8 @@ public class GoalManager : MonoBehaviour
             objectId != goal.objectId ||
             !ZoneManager.IsPointInZone(location, goal.zoneId))
         {
+            // Mwahahaha!
             score -= (int)(0.5f * pointsPerGoal);
-            score = Mathf.Max(score, 0);
             scoreUI.UpdateScore(score);
             return;
         }
@@ -162,6 +162,23 @@ public class GoalManager : MonoBehaviour
 
 
         ++goalIndex;
+
+        // Reset if we're done with the goals
+        if (goalIndex >= goals.Count)
+        {
+            // We keep shuffling until the next item isn't the same as the one
+            // we had before.
+            // This looks like it might run forefver, but because there's only
+            // like a 5% chance the first item will be the same each time,
+            // eventually it converges and is guaranteed to stop. And we don't
+            // really run this enough to be worried about efficiency.
+            do
+            {
+                Shuffle(goals);
+
+            } while (goals[0].objectId == currentGoalItem);
+            goalIndex = 0;
+        }
 
         currentGoalItem = goals[goalIndex].objectId;
 
