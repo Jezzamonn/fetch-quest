@@ -22695,6 +22695,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PatHand
       objectReference: {fileID: 0}
+    - target: {fileID: 1205850727325489678, guid: 19e0afa7a199742e0b93eb9240aaac44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7449276603098653117, guid: 19e0afa7a199742e0b93eb9240aaac44,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22753,7 +22758,7 @@ PrefabInstance:
     - target: {fileID: 7449276603098653117, guid: 19e0afa7a199742e0b93eb9240aaac44,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -902
       objectReference: {fileID: 0}
     - target: {fileID: 7449276603098653117, guid: 19e0afa7a199742e0b93eb9240aaac44,
         type: 3}
@@ -28250,11 +28255,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Title
       objectReference: {fileID: 0}
-    - target: {fileID: 8462395962484711862, guid: fb79420b595585646a5925a370dad08e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8462395962484711863, guid: fb79420b595585646a5925a370dad08e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28375,5 +28375,11 @@ PrefabInstance:
       propertyPath: nextScreen
       value: 
       objectReference: {fileID: 683006806}
+    - target: {fileID: 7382822083401169546, guid: fb79420b595585646a5925a370dad08e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 213329668078086320, guid: 086641ee78d3944a4b431174e04f147f,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb79420b595585646a5925a370dad08e, type: 3}
