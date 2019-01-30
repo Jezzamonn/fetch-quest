@@ -56,7 +56,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eefd426a9ed897443b1d02d47f371056, type: 2}
   - {fileID: 11400000, guid: a4871e8b7c8296f4ba250debf8f21bf4, type: 2}
   currentGoalItem: 0
-  totalTime: 60
+  totalTime: 30
+  extraTimes:
+  - 10
+  - 10
+  - 10
+  - 10
+  - 7
+  - 7
+  - 7
+  - 5
+  - 5
+  - 3
   pointsPerGoal: 100
   scoreUI: {fileID: 0}
   timeUI: {fileID: 0}

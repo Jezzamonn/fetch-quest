@@ -38,6 +38,7 @@ public class GoalManager : MonoBehaviour
     [Space(20)]
 
     [SerializeField] private float totalTime;
+    [SerializeField] private float[] extraTimes;
     [SerializeField] private int pointsPerGoal;
 
     [SerializeField] private ScoreUI scoreUI;
@@ -48,6 +49,7 @@ public class GoalManager : MonoBehaviour
 
     private int goalIndex;
     private List<Goal> goals = new List<Goal>();
+    private int totalGoals;
 
     private int score;
     private readonly Timer gameTimer = new Timer();
@@ -160,8 +162,18 @@ public class GoalManager : MonoBehaviour
         scoreUI.UpdateScore(score);
         EventManager.onGoalDone.Dispatch();
 
+        if (totalGoals >= extraTimes.Length)
+        {
+            gameTimer.AddExtraTime(extraTimes[extraTimes.Length - 1]);
+        }
+        else
+        {
+            gameTimer.AddExtraTime(extraTimes[totalGoals]);
+        }
+        UpdateTimerUI();
 
         ++goalIndex;
+        ++totalGoals;
 
         // Reset if we're done with the goals
         if (goalIndex >= goals.Count)

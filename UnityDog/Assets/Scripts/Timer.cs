@@ -3,7 +3,13 @@
 [System.Serializable]
 public class Timer
 {
+    /// <summary>
+    /// Total time to count for, in seconds
+    /// </summary>
     public float duration;
+    /// <summary>
+    /// The current time, in seconds
+    /// </summary>
     public float timer { get; private set; }
 
     public Timer(float duration = 0, bool startDone = true)
@@ -65,5 +71,11 @@ public class Timer
     public void End()
     {
         timer = duration;
+    }
+
+    public void AddExtraTime(float extraTime)
+    {
+        duration += extraTime;
+        // This might mess with isDone? But that's ok I think.
     }
 }
