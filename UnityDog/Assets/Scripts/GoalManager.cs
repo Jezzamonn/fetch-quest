@@ -44,6 +44,10 @@ public class GoalManager : MonoBehaviour
     [SerializeField] private ScoreUI scoreUI;
     [SerializeField] private Text timeUI;
 
+    [SerializeField] private Transform scoreParticleHolder;
+    [SerializeField] private Transform timeParticleHolder;
+    [SerializeField] private FloatUp floatingTextPrefab;
+
     private bool gameStarted;
     private bool gameOver;
 
@@ -153,23 +157,31 @@ public class GoalManager : MonoBehaviour
             !ZoneManager.IsPointInZone(location, goal.zoneId))
         {
             // Mwahahaha!
-            score -= (int)(0.5f * pointsPerGoal);
+            int scoreChange = (int)(0.5f * pointsPerGoal);
+            score -= scoreChange;
             scoreUI.UpdateScore(score);
+
+            AddFloatingText(string.Format("-{0}", scoreChange), scoreParticleHolder);
             return;
         }
 
         score += pointsPerGoal;
         scoreUI.UpdateScore(score);
+        AddFloatingText(string.Format("+{0}", pointsPerGoal), scoreParticleHolder);
+
         EventManager.onGoalDone.Dispatch();
 
+        float extraTime = 0;
         if (totalGoals >= extraTimes.Length)
         {
-            gameTimer.AddExtraTime(extraTimes[extraTimes.Length - 1]);
+            extraTime = extraTimes[extraTimes.Length - 1];
         }
         else
         {
-            gameTimer.AddExtraTime(extraTimes[totalGoals]);
+            extraTime = extraTimes[totalGoals];
         }
+        gameTimer.AddExtraTime(extraTime);
+        AddFloatingText(string.Format("+{0}s", extraTime), timeParticleHolder);
         UpdateTimerUI();
 
         ++goalIndex;
@@ -195,6 +207,13 @@ public class GoalManager : MonoBehaviour
         currentGoalItem = goals[goalIndex].objectId;
 
         NotifyCurrentGoal();
+    }
+
+    private void AddFloatingText(string content, Transform parent)
+    {
+        FloatUp floatingText = Instantiate(floatingTextPrefab, parent);
+        floatingText.Initialize(content, new Vector2());
+        floatingText.StartFloating();
     }
 
     public void NotifyCurrentGoal()
