@@ -14,10 +14,13 @@ class NameGenerator {
             this.readNames(filenames);
         }
         if (names) {
-            this.addNames(filenames);
+            this.addNames(names);
         }
     }
 
+    /**
+     * @param {Array<string>} names 
+     */
     readNames(filenames) {
         for (filename of filenames) {
             data = fs.readFileSync(filename, 'utf8');
@@ -29,20 +32,29 @@ class NameGenerator {
         }
     }
 
+    /**
+     * @param {Array<string>} names 
+     */
     addNames(names) {
         for (name of names) {
             // Really a set would be better for this runtime-wise, but also it's not that important.
-            if (allNames.includes(name)) {
+            if (this.allNames.includes(name)) {
                 continue;
             }
-            allNames.push(name);
+            this.allNames.push(name);
         }
     }
 
+    /**
+     * @returns {string} A name!
+     */
     pickName() {
         
     }
 
+    /**
+     * @param {string} name 
+     */
     freeUpName(name) {
         
     }

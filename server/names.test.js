@@ -1,13 +1,19 @@
 const NameGenerator = require("./names");
 
+let defaultGenerator;
+
+beforeEach(() => {
+    defaultGenerator = new NameGenerator({names: ['Lucky', 'Maxwell', 'Daisy']});
+});
+
 test('ignores duplicate names', () => {
-    const generator = new NameGenerator(['Lucky', 'Lucky', 'Maxwell']);
+    const generator = new NameGenerator({names: ['Lucky', 'Lucky', 'Maxwell']});
    
     expect(generator.allNames).toHaveLength(2);
 });
 
-test('generates a names', () => {
-    const generator = new NameGenerator(['Lucky', 'Lucky', 'Maxwell']);
+test('generates a name', () => {
+    const generator = defaultGenerator;
 
     const name = generator.pickName();
 
@@ -15,7 +21,7 @@ test('generates a names', () => {
 });
 
 test('generates heaps of unique names', () => {
-    const generator = new NameGenerator(['Lucky', 'Lucky', 'Maxwell']);
+    const generator = defaultGenerator;
 
     const names = new Set();
     for (let i = 0; i < 100; i++) {
@@ -23,4 +29,14 @@ test('generates heaps of unique names', () => {
     }
 
     expect(names).toHaveLength(100);
+});
+
+test('exhausts submitted names first', () => {
+    const generator = defaultGenerator;
+
+    const names = [];
+    for (let i = 0; i < 3; i++) {
+        names.push(generator.pickName());
+    }
+    expect(names.sort()).toEqual(['Lucky', 'Maxwell', 'Daisy'].sort());
 });
