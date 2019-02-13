@@ -6,6 +6,7 @@
         "test": "jest"
     },
     "dependencies": {
+        "random-js": "^1.0.8",
         "socket.io": "^2.2.0"
     },
     "devDependencies": {

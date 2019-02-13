@@ -28,7 +28,7 @@ test('generates heaps of unique names', () => {
         names.add(generator.pickName());
     }
 
-    expect(names).toHaveLength(100);
+    expect(Array.from(names)).toHaveLength(100);
 });
 
 test('exhausts submitted names first', () => {

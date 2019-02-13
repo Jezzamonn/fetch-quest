@@ -1,4 +1,5 @@
 const fs = require('fs');
+const Random = require('random-js');
 
 class NameGenerator {
 
@@ -9,6 +10,8 @@ class NameGenerator {
         this.freeNames = [];
         /** @type {Set<string>} */
         this.currentNames = new Set();
+
+        this.random = new Random(Random.engines.mt19937().autoSeed());
 
         if (filenames) {
             this.readNames(filenames);
@@ -42,6 +45,7 @@ class NameGenerator {
                 continue;
             }
             this.allNames.push(name);
+            this.freeNames.push(name);
         }
     }
 
@@ -49,7 +53,25 @@ class NameGenerator {
      * @returns {string} A name!
      */
     pickName() {
-        
+        if (this.freeNames.length > 0) {
+            const randomIndex = this.random.integer(0, this.freeNames.length - 1);
+            const name = this.freeNames.splice(randomIndex, 1)[0];
+
+            this.currentNames.add(name);
+            return name;
+        }
+        // Lazy fall back -- add random digits to a name
+        for (let i = 0; i < 20; i++) {
+            const baseName = this.random.pick(this.allNames);
+            const suffix = this.random.string(4, "0123456789");
+            const name = baseName + suffix;
+            if (this.currentNames.has(name)) {
+                continue;
+            }
+
+            this.currentNames.add(name);
+            return name;
+        }
     }
 
     /**
