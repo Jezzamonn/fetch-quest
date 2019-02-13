@@ -20,7 +20,7 @@ test('generates a name', () => {
     expect(name).toBeTruthy();
 });
 
-test('generates heaps of unique names', () => {
+test('generates lots of unique names', () => {
     const generator = defaultGenerator;
 
     const names = new Set();
@@ -29,6 +29,17 @@ test('generates heaps of unique names', () => {
     }
 
     expect(Array.from(names)).toHaveLength(100);
+});
+
+test('generates heaps of unique names', () => {
+    const generator = defaultGenerator;
+
+    const names = new Set();
+    for (let i = 0; i < 10000; i++) {
+        names.add(generator.pickName());
+    }
+
+    expect(Array.from(names)).toHaveLength(10000);
 });
 
 test('exhausts submitted names first', () => {
