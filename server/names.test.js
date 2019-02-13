@@ -49,5 +49,33 @@ test('exhausts submitted names first', () => {
     for (let i = 0; i < 3; i++) {
         names.push(generator.pickName());
     }
+
     expect(names.sort()).toEqual(['Lucky', 'Maxwell', 'Daisy'].sort());
+});
+
+test('reuses returned names', () => {
+    const generator = new NameGenerator({names: ['Lucky']});
+
+    const name = generator.pickName();
+    expect(name).toEqual('Lucky');
+
+    generator.freeUpName(name);
+
+    const secondName = generator.pickName();
+    expect(secondName).toEqual('Lucky');
+});
+
+test('freeing a name doesn\'t free other names', () => {
+    const generator = new NameGenerator({names: ['Lucky']});
+
+    generator.pickName();
+    const name = generator.pickName();
+    generator.freeUpName(name);
+
+    const secondName = generator.pickName();
+    expect(secondName).not.toEqual('Lucky');
+});
+
+test('throws error if there are no names given', () => {
+    expect(() => new NameGenerator()).toThrow();
 });

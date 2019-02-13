@@ -19,6 +19,10 @@ class NameGenerator {
         if (names) {
             this.addNames(names);
         }
+
+        if (this.allNames.length == 0) {
+            throw new Error('No names defined!')
+        }
     }
 
     /**
@@ -78,7 +82,11 @@ class NameGenerator {
      * @param {string} name 
      */
     freeUpName(name) {
+        this.currentNames.delete(name);
         
+        if (this.allNames.includes(name)) {
+            this.freeNames.push(name);
+        }
     }
 
 }
