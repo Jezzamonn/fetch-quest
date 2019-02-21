@@ -1,4 +1,4 @@
-const NameGenerator = require("./names");
+const { NameGenerator } = require("./names");
 
 let defaultGenerator;
 
@@ -79,3 +79,19 @@ test('freeing a name doesn\'t free other names', () => {
 test('throws error if there are no names given', () => {
     expect(() => new NameGenerator()).toThrow();
 });
+
+test('loads from file', () => {
+    const generator = new NameGenerator({filenames: ['submittednames.txt']});
+
+    const name = generator.pickName();
+
+    expect(name).toBeTruthy();
+});
+
+test('loads from multiple files', () => {
+    const generator = new NameGenerator({filenames: ['submittednames.txt', 'top100names.txt']});
+
+    const name = generator.pickName();
+
+    expect(name).toBeTruthy();
+})

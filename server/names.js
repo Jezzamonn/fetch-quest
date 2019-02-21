@@ -29,8 +29,8 @@ class NameGenerator {
      * @param {Array<string>} names 
      */
     readNames(filenames) {
-        for (filename of filenames) {
-            data = fs.readFileSync(filename, 'utf8');
+        for (const filename of filenames) {
+            const data = fs.readFileSync(filename, 'utf8');
             this.addNames(
                 data.split('\n')
                 .map(n => n.trim())
@@ -91,4 +91,4 @@ class NameGenerator {
 
 }
 
-module.exports = NameGenerator;
+module.exports.NameGenerator = NameGenerator;
