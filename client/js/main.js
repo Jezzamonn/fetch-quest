@@ -25,8 +25,6 @@ function init() {
 	// Kick off the update loop
 	window.requestAnimationFrame(everyFrame);
 
-	// document.addEventListener('mousedown', () => sendMessage());
-	// document.addEventListener('touchstart', () => sendMessage());
 	document.querySelector('.button-bad').addEventListener('click', () => sendMessage('bad'))
 	document.querySelector('.button-good').addEventListener('click', () => sendMessage('good'))
 
@@ -97,4 +95,4 @@ function updateGoal(message) {
 	goal.textContent = message;
 }
 
-init();
+window.addEventListener('load', init);
