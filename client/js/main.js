@@ -92,7 +92,7 @@ function sendMessage(message) {
 }
 
 function updateGoal(message) {
-	const goal = document.querySelector('#goal');
+	const goal = document.querySelector('#goal-message');
 	// Should be safe from XSS because it's textContent
 	goal.textContent = message;
 }

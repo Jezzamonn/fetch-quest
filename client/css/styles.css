@@ -37,6 +37,19 @@ h1, p {
 	z-index: -1;
 }
 
+/* -- Enter a Dog's Name -- */
+.dog-input {
+	border: 1px solid white;
+	border-radius: 4px;
+	font-size: 10vmin;
+	font-family: 'Baloo Thambi', sans-serif;
+	max-width: 400px;
+	width: 80vw;
+	background: none;
+	color: white;
+}
+
+/* -- Main Game Page -- */
 .button-holder {
 	display: flex;
 	justify-content: space-evenly;
@@ -69,4 +82,8 @@ h1, p {
 }
 .button-good {
 	background-color: #079b42;
+}
+
+.hidden {
+	display: none;
 }
