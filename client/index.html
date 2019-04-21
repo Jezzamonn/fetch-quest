@@ -40,23 +40,23 @@
     <meta property="fb:app_id"             content="264785490940720" />
 </head>
 <body>
-<div id="enter-room-content" class="content">
+<form id="enter-room-content" class="content"  method="get">
 	<h1>Enter Dog Name:</h1>
-	<form>
-		<input type="text" placeholder="name" class="dog-input">
-	</form>
-</div>
-<div id="connecting-content" class="content">
-	<h1>Connecting...</h1>
-</div>
+	<div>
+		<input type="text" name="name" placeholder="name" class="dog-input">
+	</div>
+	<div>
+		<button type="submit" class="button button-go">Go!</button>
+	</div>
+</form>
 <div id="game-content" class="content hidden">
 	<div class="goal hidden">
 		<h1>Goal:</h1>
 		<p id="goal-message">loading goal...</p>
 	</div>
 	<div class="button-holder">
-		<button class="button button-bad">Bad</button>
-		<button class="button button-good">Good</button>
+		<button class="button button-game button-bad">Bad</button>
+		<button class="button button-game button-good">Good</button>
 	</div>
 </div>
 <div class="background">

@@ -37,19 +37,22 @@ h1, p {
 	z-index: -1;
 }
 
-/* -- Enter a Dog's Name -- */
 .dog-input {
 	border: 1px solid white;
 	border-radius: 4px;
-	font-size: 10vmin;
+	font-size: 7vmin;
 	font-family: 'Baloo Thambi', sans-serif;
 	max-width: 400px;
 	width: 80vw;
 	background: none;
 	color: white;
+	padding: 8px;
+}
+.dog-input::placeholder {
+	color: white;
+	opacity: 0.5;
 }
 
-/* -- Main Game Page -- */
 .button-holder {
 	display: flex;
 	justify-content: space-evenly;
@@ -63,13 +66,12 @@ h1, p {
 	transition: transform 0.1s linear,
 				background-color 0.1s linear;
 
-	width: 40vmin;
-	height: 40vmin;
 
 	font-family: 'Baloo Thambi', sans-serif;
 	text-align: center;
 	font-size: 10vmin;
 }
+
 .button:focus {
 	outline: 0;
 }
@@ -77,11 +79,19 @@ h1, p {
     transform: scale(0.95);
 }
 
+.button-game {
+	width: 40vmin;
+	height: 40vmin;
+}
 .button-bad {
 	background-color: #e72153;
 }
 .button-good {
 	background-color: #079b42;
+}
+.button-go {
+	background-color: rgba(255,255,255,0.3);
+	padding: 0 20px;
 }
 
 .hidden {
