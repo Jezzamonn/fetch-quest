@@ -43,6 +43,10 @@ namespace SocketIO
 		#region Public Properties
 
 		public string url = "ws://127.0.0.1:4567/socket.io/?EIO=4&transport=websocket";
+
+		public bool useDebugUrl = false;
+
+		public string debugUrl = "ws://localhost:3000/socket.io/?EIO=4&transport=websocket";
 		public bool autoConnect = true;
 		public int reconnectDelay = 5;
 		public float ackExpirationTime = 1800f;
@@ -99,6 +103,7 @@ namespace SocketIO
 			sid = null;
 			packetId = 0;
 
+			String url = this.useDebugUrl ? this.debugUrl : this.url;
 			ws = new WebSocket(url);
 			ws.OnOpen += OnOpen;
 			ws.OnMessage += OnMessage;
