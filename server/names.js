@@ -43,7 +43,7 @@ class NameGenerator {
      * @param {Array<string>} names 
      */
     addNames(names) {
-        for (name of names) {
+        for (const name of names) {
             // Really a set would be better for this runtime-wise, but also it's not that important.
             if (this.allNames.includes(name)) {
                 continue;
