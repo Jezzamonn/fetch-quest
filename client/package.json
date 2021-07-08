@@ -20,23 +20,26 @@
     "webpack": "webpack || exit 1",
     "html": "cp index.html build/index.html",
     "css": "rm -r build/css; cp -r css build/css",
+    "build": "npm run webpack && npm run html && npm run css",
     "watch": "npm-watch",
     "reload": "reload -b -d build"
   },
   "author": "Jezzamon",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.14.7",
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
-    "http-server": "^0.11.1",
-    "npm-watch": "^0.3.0",
-    "reload": "^2.3.1",
-    "webpack": "^3.11.0",
-    "webpack-node-externals": "^1.7.2"
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "babel-preset-env": "^1.7.0",
+    "http-server": "^0.12.3",
+    "npm-watch": "^0.10.0",
+    "reload": "^3.2.0",
+    "webpack": "^5.43.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
-    "socket.io-client": "^2.2.0"
+    "socket.io-client": "^4.1.2"
   }
 }

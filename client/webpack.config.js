@@ -4,13 +4,11 @@ const nodeExternals = require('webpack-node-externals');
 
 const common = {
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
+                exclude: /node_modules/,
                 loader: 'babel-loader',
-                query: {
-                    presets: ['env']
-                }
             }
         ]
     },
@@ -25,6 +23,7 @@ const client = {
         path: path.resolve(__dirname, 'build/js'),
         filename: 'main.bundle.js'
     },
+    mode: 'development',
     devtool: 'source-map'
 }
 
