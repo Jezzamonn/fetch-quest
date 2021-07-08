@@ -15,9 +15,29 @@ let controller;
 
 let socket;
 
+const useRooms = false;
+
+const debugUrl = 'localhost:3000';
+const regularUrl = 'http://35.231.246.171:3000';
+const useDebugUrl = false;
+
+const url = useDebugUrl ? debugUrl : regularUrl;
+
 function init() {
 	lastTime = Date.now();
 	controller = new Controller();
+
+	console.log(`useRooms = ${useRooms}`);
+	const enterRoomContent = document.querySelector('#enter-room-content');
+	const gameContent = document.querySelector('#game-content');
+	if (useRooms) {
+		enterRoomContent.classList.remove('hidden');
+		gameContent.classList.add('hidden');
+	}
+	else {
+		enterRoomContent.classList.add('hidden');
+		gameContent.classList.remove('hidden');
+	}
 
 	handleResize();
 	// Set up event listeners.
@@ -29,7 +49,7 @@ function init() {
 	document.querySelector('.button-good').addEventListener('click', () => sendMessage('good'))
 
 	// Connect to socket.io!
-	socket = io('http://35.231.246.171:3000');
+	socket = io(url);
 
 	socket.on('goal-update', message => updateGoal(message));
 
@@ -95,4 +115,4 @@ function updateGoal(message) {
 	goal.textContent = message;
 }
 
-window.addEventListener('load', init);
+window.onload = init;
