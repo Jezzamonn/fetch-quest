@@ -14,6 +14,8 @@ let lastTime;
 let controller;
 
 let socket;
+let connected = false;
+let currentGoal = '';
 
 const useRooms = false;
 
@@ -51,7 +53,23 @@ function init() {
 	// Connect to socket.io!
 	socket = io(url);
 
-	socket.on('goal-update', message => updateGoal(message));
+	socket.on('connect', () => {
+		console.log(`Connected. socket.connected = ${socket.connected}`);
+		connected = socket.connected;
+		updateGoal();
+	});
+
+	socket.on('disconnect', () => {
+		console.log(`Disconnected. socket.connected = ${socket.connected}`);
+		connected = socket.connected;
+		updateGoal();
+	})
+
+	socket.on('goal-update', message => {
+		console.log(`Update goal ${message}`);
+		lastMessage = message;
+		updateGoal();
+	});
 
 	beRandomColor();
 }
@@ -111,10 +129,16 @@ function sendMessage(message) {
 }
 
 function updateGoal(message) {
-	console.log(`Update goal ${message}`);
 	const goal = document.querySelector('#goal-message');
-	// Should be safe from XSS because it's textContent
-	goal.textContent = message;
+	if (!connected) {
+		goal.textContent = 'connecting...';
+		return;
+	}
+	if (currentGoal.length > 0) {
+		// Should be safe from XSS because it's textContent
+		goal.textContent = currentGoal;
+	}
+	goal.textContent = 'loading goal...';
 }
 
 window.onload = init;
