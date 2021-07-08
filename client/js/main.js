@@ -71,7 +71,7 @@ function init() {
 		updateGoal();
 	});
 
-	beRandomColor();
+	bePurpleColor();
 }
 
 // TODO: Make tweak this to allow frame skipping for slow computers. Maybe.
@@ -117,9 +117,9 @@ function handleResize(evt) {
 	render();
 }
 
-function beRandomColor() {
+function bePurpleColor() {
 	const body = document.querySelector('body');
-	const color = hsl(Math.random(), 0.6, 0.2);
+	const color = hsl(0.8, 0.6, 0.2);
 	body.style.backgroundColor = color;
 }
 
