@@ -19,7 +19,7 @@ const useRooms = false;
 
 const debugUrl = 'localhost:3000';
 const regularUrl = 'http://35.231.246.171:3000';
-const useDebugUrl = false;
+const useDebugUrl = true;
 
 const url = useDebugUrl ? debugUrl : regularUrl;
 
@@ -106,10 +106,12 @@ function beRandomColor() {
 }
 
 function sendMessage(message) {
+	console.log(`socket.emit reaction ${message}`);
 	socket.emit('reaction', message);
 }
 
 function updateGoal(message) {
+	console.log(`Update goal ${message}`);
 	const goal = document.querySelector('#goal-message');
 	// Should be safe from XSS because it's textContent
 	goal.textContent = message;
