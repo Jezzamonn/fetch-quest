@@ -24,13 +24,13 @@ class RoomManager {
         }
         const newName = this.nameGenerator.pickName();
         this.names[id] = newName;
-        this.usedNames.add(name);
-        return name;
+        this.usedNames.add(newName);
+        return newName;
     }
 
     clearUnusedNames() {
         // Interestingly, it's totally fine to delete properties while looping over them
-        for (name in this.names) {
+        for (const name in this.names) {
             if (!this.usedNames.has(name)) {
                 delete this.names[name];
             }

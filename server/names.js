@@ -1,5 +1,5 @@
 const fs = require('fs');
-const Random = require('random-js');
+const { seededRandom } = require('./rand');
 
 class NameGenerator {
 
@@ -11,7 +11,7 @@ class NameGenerator {
         /** @type {Set<string>} */
         this.currentNames = new Set();
 
-        this.random = new Random(Random.engines.mt19937().autoSeed());
+        this.random = seededRandom(Math.random().toString());
 
         if (filenames) {
             this.readNames(filenames);
