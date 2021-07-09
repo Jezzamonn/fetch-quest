@@ -67,7 +67,7 @@ function init() {
 
 	socket.on('goal-update', message => {
 		console.log(`Update goal ${message}`);
-		lastMessage = message;
+		currentGoal = message;
 		updateGoal();
 	});
 
@@ -137,6 +137,7 @@ function updateGoal(message) {
 	if (currentGoal.length > 0) {
 		// Should be safe from XSS because it's textContent
 		goal.textContent = currentGoal;
+		return;
 	}
 	goal.textContent = 'loading goal...';
 }
