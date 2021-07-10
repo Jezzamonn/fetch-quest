@@ -33,10 +33,23 @@ public class GoalData : ScriptableObject
         Tree,
         [Description("a bush")]
         Bush,
-        [Description("the tv")]
+        // Tuna Quest
+        [Description("the TV")]
         TV,
-        [Description("a couch")]
+        [Description("the couch")]
         Couch,
+        [Description("Como bed")]
+        ComoBed,
+        [Description("Venice bed")]
+        VeniceBed,
+        [Description("the hammock")]
+        Hammock,
+        [Description("the dining table")]
+        DiningTable,
+        [Description("the window seat")]
+        WindowSeat,
+        [Description("the nest chair")]
+        NestChair,
     }
 
     [Serializable]
