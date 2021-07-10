@@ -150,6 +150,8 @@ public class GoalManager : MonoBehaviour
 
     private void OnPlayerAction(GoalData.Action action, GoalData.ObjectId objectId, Vector3 location)
     {
+        Debug.Log("OnPlayerAction");
+
         Goal goal = CurrentGoal;
 
         if (action != goal.action ||
