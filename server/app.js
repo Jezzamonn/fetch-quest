@@ -1,4 +1,8 @@
-const io = require('socket.io')(3000, {
+var express = require("express");
+var app = express();
+var server = require("http").Server(app);
+
+const io = require('socket.io')(server, {
     cors: {
         origin: '*',
     }
@@ -20,7 +24,7 @@ io.on('connection', (socket) => {
         socket.on('request-room', (message) => {
             const guid = message;
             room = roomManager.getRoom(guid);
-            socket.join(roomName);
+            socket.join(room);
         });
     }
 
@@ -49,3 +53,11 @@ io.on('connection', (socket) => {
     });
 
 });
+
+app.get('/', function(request, response) {
+    response.send('<p>Hello!</p>');
+});
+
+server.listen(3000, function () {
+    console.log('Listening on port 3000');
+})

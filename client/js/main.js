@@ -20,7 +20,7 @@ let currentGoal = '';
 const useRooms = false;
 
 const debugUrl = 'localhost:3000';
-const regularUrl = 'http://35.231.246.171:3000';
+const regularUrl = 'https://free-sponge-part.glitch.me';
 const useDebugUrl = false;
 
 const url = useDebugUrl ? debugUrl : regularUrl;
