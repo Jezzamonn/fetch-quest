@@ -15338,7 +15338,7 @@ MonoBehaviour:
   speed: 1
   m_Settings:
     randomizeOnStart: 1
-    playOnStart: 1
+    playOnStart: 0
     overrideFileSettings: 0
     customPlaybackMode: 1
     customFramesPerSecond: 8
@@ -28385,6 +28385,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1846129243 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1641443406828638608, guid: 8390fc7afa9a744af9a0bba64c3772ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 1641443404982526923}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1846521589
 GameObject:
   m_ObjectHideFlags: 0
@@ -28918,6 +28924,7 @@ Transform:
   - {fileID: 1926825288}
   - {fileID: 2004059337}
   - {fileID: 1384219541}
+  - {fileID: 1894298297}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -29425,6 +29432,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1894298296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1894298297}
+  - component: {fileID: 1894298298}
+  m_Layer: 0
+  m_Name: LevelHider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1894298297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894298296}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1878956600}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1894298298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894298296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ad56cf3620245cd8d5dae6524d2507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  top: {fileID: 1926825287}
+  tuna: {fileID: 1846129243}
+  cutOffPosition: 1.95
 --- !u!1 &1896190643
 GameObject:
   m_ObjectHideFlags: 0
@@ -33146,6 +33199,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1641443406828638611, guid: 8390fc7afa9a744af9a0bba64c3772ed,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: e84ca5f8c344a7d428c54ed5d25826ec,
+        type: 2}
     - target: {fileID: 1641443406828638615, guid: 8390fc7afa9a744af9a0bba64c3772ed,
         type: 3}
       propertyPath: stopDrag
