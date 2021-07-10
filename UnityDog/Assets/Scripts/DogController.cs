@@ -4,6 +4,7 @@ using DoodleStudio95;
 public class DogController : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float downSpeed;
     [SerializeField] private float movingDrag;
     [SerializeField] private float stopDrag;
 
@@ -69,7 +70,9 @@ public class DogController : MonoBehaviour
         Vector3 moveForce = new Vector3(moveInput.x, 0.0f, moveInput.y);
         moveForce.Normalize();
         moveForce *= speed * Time.fixedDeltaTime;
-        rb.AddForce(moveForce, ForceMode.VelocityChange);
+        Vector3 extraGravity = downSpeed * Time.fixedDeltaTime * Vector3.down;
+        rb.AddForce(moveForce + extraGravity, ForceMode.VelocityChange);
+
     }
 }
 
