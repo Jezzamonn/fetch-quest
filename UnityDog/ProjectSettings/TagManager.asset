@@ -43,3 +43,27 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 4176767893
+    locked: 0
+  - name: BottomFloor
+    uniqueID: 4147406921
+    locked: 0
+  - name: BottomObj
+    uniqueID: 980521623
+    locked: 0
+  - name: MiddleFloor
+    uniqueID: 3555264331
+    locked: 0
+  - name: MiddleObj
+    uniqueID: 2469649863
+    locked: 0
+  - name: TopFloor
+    uniqueID: 121833089
+    locked: 0
+  - name: TopObj
+    uniqueID: 3645281827
+    locked: 0
+  - name: Tuna
+    uniqueID: 3383577463
+    locked: 0
