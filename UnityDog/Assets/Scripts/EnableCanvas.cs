@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnableCanvas : MonoBehaviour
 {
-    public Canvas canvas;
+    public GameObject canvas;
 
     void Awake()
     {
-        canvas.enabled = true;
+        canvas.active = true;
     }
 }
