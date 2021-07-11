@@ -50,6 +50,12 @@ public class GoalData : ScriptableObject
         WindowSeat,
         [Description("the nest chair")]
         NestChair,
+        [Description("Pinky")]
+        Pinky,
+        [Description("Tuna's bed")]
+        TunaBed,
+        [Description("the vine plant")]
+        VinePlant,
     }
 
     [Serializable]
